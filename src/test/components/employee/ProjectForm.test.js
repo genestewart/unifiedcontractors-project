@@ -10,6 +10,7 @@ import { nextTick } from 'vue'
 import ProjectForm from '@/components/employee/ProjectForm.vue'
 import { useProjectsStore } from '@/stores/projects'
 import { useAuthStore } from '@/stores/auth'
+import { createPrimeVueStubs, createPrimeVueConfig } from '@/test/utils/primevue-mocks'
 
 // Mock PrimeVue components
 const mockToast = {
@@ -54,6 +55,9 @@ describe('ProjectForm', () => {
       stubActions: false
     })
 
+    const primeVueStubs = createPrimeVueStubs()
+    const primeVueConfig = createPrimeVueConfig()
+
     wrapper = mount(ProjectForm, {
       props: {
         project: null,
@@ -63,49 +67,9 @@ describe('ProjectForm', () => {
       global: {
         plugins: [pinia],
         stubs: {
-          Dialog: {
-            template: '<div class="dialog-mock"><slot /></div>',
-            props: ['visible', 'modal', 'header', 'style']
-          },
-          Button: {
-            template: '<button :disabled="disabled" :class="severity"><slot /></button>',
-            props: ['disabled', 'severity', 'loading']
-          },
-          InputText: {
-            template: '<input :value="modelValue" @input="$emit(\'update:modelValue\', $event.target.value)" :class="{ \'p-invalid\': invalid }" />',
-            props: ['modelValue', 'invalid'],
-            emits: ['update:modelValue']
-          },
-          Textarea: {
-            template: '<textarea :value="modelValue" @input="$emit(\'update:modelValue\', $event.target.value)" :class="{ \'p-invalid\': invalid }"></textarea>',
-            props: ['modelValue', 'invalid'],
-            emits: ['update:modelValue']
-          },
-          Calendar: {
-            template: '<input type="date" :value="modelValue" @input="$emit(\'update:modelValue\', $event.target.value)" />',
-            props: ['modelValue'],
-            emits: ['update:modelValue']
-          },
-          Dropdown: {
-            template: '<select :value="modelValue" @change="$emit(\'update:modelValue\', $event.target.value)"><option v-for="option in options" :key="option.value" :value="option.value">{{ option.label }}</option></select>',
-            props: ['modelValue', 'options'],
-            emits: ['update:modelValue']
-          },
-          Checkbox: {
-            template: '<input type="checkbox" :checked="modelValue" @change="$emit(\'update:modelValue\', $event.target.checked)" />',
-            props: ['modelValue'],
-            emits: ['update:modelValue']
-          },
-          InputNumber: {
-            template: '<input type="number" :value="modelValue" @input="$emit(\'update:modelValue\', parseFloat($event.target.value))" :min="min" :max="max" />',
-            props: ['modelValue', 'min', 'max'],
-            emits: ['update:modelValue']
-          },
-          Message: {
-            template: '<div class="message" :class="severity"><slot /></div>',
-            props: ['severity']
-          }
-        }
+          ...primeVueStubs
+        },
+        ...primeVueConfig
       }
     })
 
@@ -130,18 +94,18 @@ describe('ProjectForm', () => {
     it('renders the project form dialog', () => {
       createWrapper()
       
-      expect(wrapper.find('.dialog-mock').exists()).toBe(true)
+      expect(wrapper.find('.p-dialog-wrapper').exists()).toBe(true)
       expect(wrapper.find('form').exists()).toBe(true)
     })
 
     it('displays all form fields', () => {
       createWrapper()
       
-      expect(wrapper.find('input[placeholder*="project name"]').exists()).toBe(true)
-      expect(wrapper.find('textarea[placeholder*="description"]').exists()).toBe(true)
-      expect(wrapper.find('input[placeholder*="client name"]').exists()).toBe(true)
-      expect(wrapper.find('input[placeholder*="client email"]').exists()).toBe(true)
-      expect(wrapper.find('select').exists()).toBe(true) // status dropdown
+      expect(wrapper.find('input#projectName').exists()).toBe(true)
+      expect(wrapper.find('textarea#description').exists()).toBe(true)
+      expect(wrapper.find('input#clientName').exists()).toBe(true)
+      expect(wrapper.find('input#clientEmail').exists()).toBe(true)
+      expect(wrapper.find('select#status').exists()).toBe(true) // status dropdown
       expect(wrapper.find('input[type="date"]').exists()).toBe(true) // start date
       expect(wrapper.find('input[type="checkbox"]').exists()).toBe(true) // public checkbox
     })
@@ -163,35 +127,34 @@ describe('ProjectForm', () => {
     it('initializes empty form for new project', () => {
       createWrapper()
       
-      expect(wrapper.vm.form.name).toBe('')
-      expect(wrapper.vm.form.description).toBe('')
-      expect(wrapper.vm.form.client_name).toBe('')
-      expect(wrapper.vm.form.client_email).toBe('')
-      expect(wrapper.vm.form.status).toBe('planning')
-      expect(wrapper.vm.form.is_public).toBe(false)
+      expect(wrapper.vm.formData.name).toBe('')
+      expect(wrapper.vm.formData.description).toBe('')
+      expect(wrapper.vm.formData.client_name).toBe('')
+      expect(wrapper.vm.formData.client_email).toBe('')
+      expect(wrapper.vm.formData.status).toBe('pending')
+      expect(wrapper.vm.formData.priority).toBe('medium')
     })
 
     it('populates form with project data for editing', async () => {
       createWrapper({ project: mockProject })
       await nextTick()
       
-      expect(wrapper.vm.form.name).toBe(mockProject.name)
-      expect(wrapper.vm.form.description).toBe(mockProject.description)
-      expect(wrapper.vm.form.client_name).toBe(mockProject.client_name)
-      expect(wrapper.vm.form.client_email).toBe(mockProject.client_email)
-      expect(wrapper.vm.form.status).toBe(mockProject.status)
-      expect(wrapper.vm.form.is_public).toBe(mockProject.is_public)
+      expect(wrapper.vm.formData.name).toBe(mockProject.name)
+      expect(wrapper.vm.formData.description).toBe(mockProject.description)
+      expect(wrapper.vm.formData.client_name).toBe(mockProject.client_name)
+      expect(wrapper.vm.formData.client_email).toBe(mockProject.client_email)
+      expect(wrapper.vm.formData.status).toBe(mockProject.status)
     })
 
     it('updates form when project prop changes', async () => {
       createWrapper()
       
-      expect(wrapper.vm.form.name).toBe('')
+      expect(wrapper.vm.formData.name).toBe('')
       
       await wrapper.setProps({ project: mockProject })
       await nextTick()
       
-      expect(wrapper.vm.form.name).toBe(mockProject.name)
+      expect(wrapper.vm.formData.name).toBe(mockProject.name)
     })
   })
 
@@ -210,7 +173,7 @@ describe('ProjectForm', () => {
     it('validates email format', async () => {
       createWrapper()
       
-      const emailInput = wrapper.find('input[placeholder*="client email"]')
+      const emailInput = wrapper.find('input#clientEmail')
       await emailInput.setValue('invalid-email')
       await emailInput.trigger('blur')
       await nextTick()
@@ -221,7 +184,7 @@ describe('ProjectForm', () => {
     it('validates project name length', async () => {
       createWrapper()
       
-      const nameInput = wrapper.find('input[placeholder*="project name"]')
+      const nameInput = wrapper.find('input#projectName')
       await nameInput.setValue('ab') // too short
       await nameInput.trigger('blur')
       await nextTick()

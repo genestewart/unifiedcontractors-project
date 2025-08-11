@@ -252,9 +252,6 @@ export default defineConfig(({ mode }) => ({
       tryCatchDeoptimization: false
     },
     
-    // Minification settings
-    minify: 'esbuild',
-    
     // Enable code splitting
     cssCodeSplit: true
   },

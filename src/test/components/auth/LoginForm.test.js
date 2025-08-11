@@ -10,6 +10,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { nextTick } from 'vue'
 import LoginForm from '@/components/auth/LoginForm.vue'
 import { useAuthStore } from '@/stores/auth'
+import { createPrimeVueStubs, createPrimeVueConfig } from '@/test/utils/primevue-mocks'
 
 // Mock PrimeVue components
 vi.mock('primevue/usetoast', () => ({
@@ -48,6 +49,9 @@ describe('LoginForm', () => {
       query: routeQuery
     }
 
+    const primeVueStubs = createPrimeVueStubs()
+    const primeVueConfig = createPrimeVueConfig()
+
     wrapper = mount(LoginForm, {
       global: {
         plugins: [pinia, mockRouter],
@@ -58,8 +62,10 @@ describe('LoginForm', () => {
           'router-link': {
             template: '<a><slot /></a>',
             props: ['to']
-          }
-        }
+          },
+          ...primeVueStubs
+        },
+        ...primeVueConfig
       }
     })
 
@@ -88,7 +94,7 @@ describe('LoginForm', () => {
       createWrapper()
       
       expect(wrapper.find('.login-container').exists()).toBe(true)
-      expect(wrapper.find('.login-card').exists()).toBe(true)
+      expect(wrapper.find('.p-card').exists()).toBe(true)
       expect(wrapper.find('.company-logo').exists()).toBe(true)
       expect(wrapper.find('.login-title').text()).toBe('Employee Portal')
       expect(wrapper.find('.login-subtitle').text()).toContain('Sign in to access')
@@ -97,10 +103,10 @@ describe('LoginForm', () => {
     it('displays all form fields', () => {
       createWrapper()
       
-      expect(wrapper.find('#email').exists()).toBe(true)
-      expect(wrapper.find('#password').exists()).toBe(true)
-      expect(wrapper.find('#rememberMe').exists()).toBe(true)
-      expect(wrapper.find('.login-button').exists()).toBe(true)
+      expect(wrapper.find('input#email').exists()).toBe(true)
+      expect(wrapper.find('input#password').exists()).toBe(true)
+      expect(wrapper.find('input#rememberMe').exists()).toBe(true)
+      expect(wrapper.find('button.login-button').exists()).toBe(true)
     })
 
     it('displays security notice and help information', () => {
@@ -128,61 +134,61 @@ describe('LoginForm', () => {
       await nextTick()
       
       // Should show validation errors
-      expect(wrapper.find('#email-error').exists()).toBe(true)
-      expect(wrapper.find('#password-error').exists()).toBe(true)
+      expect(wrapper.find('small#email-error').exists()).toBe(true)
+      expect(wrapper.find('small#password-error').exists()).toBe(true)
     })
 
     it('validates email format', async () => {
       createWrapper()
       
-      const emailInput = wrapper.find('#email')
+      const emailInput = wrapper.find('input#email')
       await emailInput.setValue('invalid-email')
       await emailInput.trigger('blur')
       await nextTick()
       
-      expect(wrapper.find('#email-error').text()).toContain('valid email address')
+      expect(wrapper.find('small#email-error').text()).toContain('valid email address')
     })
 
     it('validates password minimum length', async () => {
       createWrapper()
       
-      const passwordInput = wrapper.find('#password')
+      const passwordInput = wrapper.find('input#password')
       await passwordInput.setValue('short')
       await passwordInput.trigger('blur')
       await nextTick()
       
-      expect(wrapper.find('#password-error').text()).toContain('at least 8 characters')
+      expect(wrapper.find('small#password-error').text()).toContain('at least 8 characters')
     })
 
     it('clears field errors on input', async () => {
       createWrapper()
       
-      const emailInput = wrapper.find('#email')
+      const emailInput = wrapper.find('input#email')
       
       // Trigger validation error
       await emailInput.setValue('invalid')
       await emailInput.trigger('blur')
       await nextTick()
       
-      expect(wrapper.find('#email-error').exists()).toBe(true)
+      expect(wrapper.find('small#email-error').exists()).toBe(true)
       
       // Clear error by typing valid email
       await emailInput.setValue('valid@email.com')
       await emailInput.trigger('input')
       await nextTick()
       
-      expect(wrapper.find('#email-error').exists()).toBe(false)
+      expect(wrapper.find('small#email-error').exists()).toBe(false)
     })
 
     it('disables submit button for invalid form', async () => {
       createWrapper()
       
-      const submitButton = wrapper.find('.login-button')
+      const submitButton = wrapper.find('button.login-button')
       expect(submitButton.attributes('disabled')).toBeDefined()
       
       // Fill valid form
-      await wrapper.find('#email').setValue('test@example.com')
-      await wrapper.find('#password').setValue('validpassword123')
+      await wrapper.find('input#email').setValue('test@example.com')
+      await wrapper.find('input#password').setValue('validpassword123')
       await nextTick()
       
       expect(submitButton.attributes('disabled')).toBeUndefined()
@@ -194,9 +200,9 @@ describe('LoginForm', () => {
       createWrapper()
       
       // Fill form with valid data
-      await wrapper.find('#email').setValue('test@example.com')
-      await wrapper.find('#password').setValue('validpassword123')
-      await wrapper.find('#rememberMe').setValue(true)
+      await wrapper.find('input#email').setValue('test@example.com')
+      await wrapper.find('input#password').setValue('validpassword123')
+      await wrapper.find('input#rememberMe').setChecked(true)
       
       // Mock successful login
       authStore.login = vi.fn().mockResolvedValue({
@@ -216,8 +222,8 @@ describe('LoginForm', () => {
     it('handles login errors gracefully', async () => {
       createWrapper()
       
-      await wrapper.find('#email').setValue('test@example.com')
-      await wrapper.find('#password').setValue('wrongpassword')
+      await wrapper.find('input#email').setValue('test@example.com')
+      await wrapper.find('input#password').setValue('wrongpassword')
       
       // Mock failed login
       const loginError = new Error('Invalid credentials')
@@ -232,8 +238,8 @@ describe('LoginForm', () => {
     it('shows loading state during login', async () => {
       createWrapper()
       
-      await wrapper.find('#email').setValue('test@example.com')
-      await wrapper.find('#password').setValue('validpassword123')
+      await wrapper.find('input#email').setValue('test@example.com')
+      await wrapper.find('input#password').setValue('validpassword123')
       
       // Mock slow login
       authStore.login = vi.fn().mockImplementation(() => 
@@ -244,7 +250,7 @@ describe('LoginForm', () => {
       await nextTick()
       
       // Should show loading state
-      expect(wrapper.find('.login-button').attributes('disabled')).toBeDefined()
+      expect(wrapper.find('button.login-button').attributes('disabled')).toBeDefined()
       
       await submitPromise
     })
@@ -332,21 +338,21 @@ describe('LoginForm', () => {
 
   describe('Remember Me Functionality', () => {
     it('pre-fills email from remembered user', () => {
-      authStore.getRememberedEmail = vi.fn().mockReturnValue('remembered@example.com')
+      createWrapper({}, { 
+        getRememberedEmail: () => 'remembered@example.com'
+      })
       
-      createWrapper()
-      
-      expect(wrapper.find('#email').element.value).toBe('remembered@example.com')
-      expect(wrapper.find('#rememberMe').element.checked).toBe(true)
+      expect(wrapper.find('input#email').element.value).toBe('remembered@example.com')
+      expect(wrapper.find('input#rememberMe').element.checked).toBe(true)
     })
 
     it('does not pre-fill when no remembered user', () => {
-      authStore.getRememberedEmail = vi.fn().mockReturnValue('')
+      createWrapper({}, { 
+        getRememberedEmail: () => ''
+      })
       
-      createWrapper()
-      
-      expect(wrapper.find('#email').element.value).toBe('')
-      expect(wrapper.find('#rememberMe').element.checked).toBe(false)
+      expect(wrapper.find('input#email').element.value).toBe('')
+      expect(wrapper.find('input#rememberMe').element.checked).toBe(false)
     })
   })
 
@@ -366,9 +372,10 @@ describe('LoginForm', () => {
     it('focuses on password field when email is pre-filled', () => {
       const focusSpy = vi.fn()
       global.document.getElementById = vi.fn().mockReturnValue({ focus: focusSpy })
-      authStore.getRememberedEmail = vi.fn().mockReturnValue('test@example.com')
       
-      createWrapper()
+      createWrapper({}, { 
+        getRememberedEmail: () => 'test@example.com'
+      })
       
       setTimeout(() => {
         expect(global.document.getElementById).toHaveBeenCalledWith('password')
@@ -381,8 +388,8 @@ describe('LoginForm', () => {
     it('has proper ARIA attributes', () => {
       createWrapper()
       
-      expect(wrapper.find('#email').attributes('aria-describedby')).toBe('email-error')
-      expect(wrapper.find('#password').attributes('aria-describedby')).toBe('password-error')
+      expect(wrapper.find('input#email').attributes('aria-describedby')).toBe('email-error')
+      expect(wrapper.find('input#password').attributes('aria-describedby')).toBe('password-error')
       expect(wrapper.find('[aria-label="required"]').exists()).toBe(true)
     })
 
@@ -397,8 +404,8 @@ describe('LoginForm', () => {
     it('has proper autocomplete attributes', () => {
       createWrapper()
       
-      expect(wrapper.find('#email').attributes('autocomplete')).toBe('email')
-      expect(wrapper.find('#password').attributes('autocomplete')).toBe('current-password')
+      expect(wrapper.find('input#email').attributes('autocomplete')).toBe('email')
+      expect(wrapper.find('input#password').attributes('autocomplete')).toBe('current-password')
     })
   })
 

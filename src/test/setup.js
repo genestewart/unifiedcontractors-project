@@ -6,18 +6,56 @@ vi.mock('*.scss', () => ({}))
 vi.mock('*.sass', () => ({}))
 
 // Mock image imports with more specific paths
-vi.mock('*.svg', () => '/mock-logo.svg')
-vi.mock('*.png', () => '/mock-image.png')
-vi.mock('*.jpg', () => '/mock-image.jpg')
-vi.mock('*.jpeg', () => '/mock-image.jpeg')
-vi.mock('*.webp', () => '/mock-image.webp')
-vi.mock('*.gif', () => '/mock-image.gif')
+vi.mock('*.svg', () => ({ default: '/mock-logo.svg' }))
+vi.mock('*.png', () => ({ default: '/mock-image.png' }))
+vi.mock('*.jpg', () => ({ default: '/mock-image.jpg' }))
+vi.mock('*.jpeg', () => ({ default: '/mock-image.jpeg' }))
+vi.mock('*.webp', () => ({ default: '/mock-image.webp' }))
+vi.mock('*.gif', () => ({ default: '/mock-image.gif' }))
 
 // Mock font imports
 vi.mock('*.woff', () => '/mock-font.woff')
 vi.mock('*.woff2', () => '/mock-font.woff2')
 vi.mock('*.ttf', () => '/mock-font.ttf')
 vi.mock('*.otf', () => '/mock-font.otf')
+
+// Mock PrimeVue components and utilities
+vi.mock('primevue/usetoast', () => ({
+  useToast: () => ({
+    add: vi.fn(),
+    remove: vi.fn(),
+    clear: vi.fn()
+  })
+}))
+
+// Mock PrimeVue configuration context
+if (!globalThis.$primevue) {
+  globalThis.$primevue = {
+    config: {
+      theme: 'aura-light-green',
+      options: {},
+      pt: {},
+      ptOptions: {}
+    },
+    changeTheme: vi.fn(),
+    isStylesLoaded: true,
+    styled: true,
+    unstyled: false
+  }
+}
+
+// Enhanced Canvas mocking for device fingerprinting
+HTMLCanvasElement.prototype.getContext = vi.fn(() => ({
+  fillText: vi.fn(),
+  textBaseline: '',
+  font: '',
+  fillStyle: '',
+  getImageData: vi.fn(() => ({
+    data: new Array(400).fill(0)
+  }))
+}))
+
+HTMLCanvasElement.prototype.toDataURL = vi.fn(() => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==')
 
 // Global test configuration with enhanced stability
 if (!globalThis.ResizeObserver) {
