@@ -217,23 +217,30 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import logoUrl from '@/assets/logo.svg'
 
 const mobileMenuOpen = ref(false)
 const dropdownOpen = ref(false)
 
+// Track timeouts for cleanup
+const timeouts = ref([])
+
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
   if (mobileMenuOpen.value) {
     // Focus first menu item when opening mobile menu
-    setTimeout(() => {
-      const firstMenuItem = document.querySelector('.nav-list [role="menuitem"]')
-      if (firstMenuItem) {
-        firstMenuItem.focus()
+    const timeoutId = setTimeout(() => {
+      // Check if document exists (for test environment)
+      if (typeof document !== 'undefined') {
+        const firstMenuItem = document.querySelector('.nav-list [role="menuitem"]')
+        if (firstMenuItem) {
+          firstMenuItem.focus()
+        }
       }
     }, 100)
+    timeouts.value.push(timeoutId)
   }
 }
 
@@ -246,9 +253,10 @@ const toggleDropdown = () => {
   dropdownOpen.value = !dropdownOpen.value
   if (dropdownOpen.value) {
     // Focus first dropdown item when opening
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       focusFirstDropdownItem()
     }, 100)
+    timeouts.value.push(timeoutId)
   }
 }
 
@@ -257,11 +265,20 @@ const closeDropdown = () => {
 }
 
 const focusFirstDropdownItem = () => {
-  const firstDropdownItem = document.querySelector('#services-dropdown [role="menuitem"]')
-  if (firstDropdownItem) {
-    firstDropdownItem.focus()
+  // Check if document exists (for test environment)
+  if (typeof document !== 'undefined') {
+    const firstDropdownItem = document.querySelector('#services-dropdown [role="menuitem"]')
+    if (firstDropdownItem) {
+      firstDropdownItem.focus()
+    }
   }
 }
+
+// Clean up timeouts on component unmount
+onUnmounted(() => {
+  timeouts.value.forEach(id => clearTimeout(id))
+  timeouts.value = []
+})
 </script>
 
 <style scoped>
