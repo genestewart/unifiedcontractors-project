@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -37,10 +38,10 @@ return new class extends Migration
             $table->index('is_public');
             $table->index('sort_order');
             $table->index('uploaded_at');
-            
-            // File size constraint (50MB limit)
-            $table->check('file_size > 0 AND file_size <= 52428800');
         });
+        
+        // Add file size constraint using raw SQL (50MB limit)
+        DB::statement('ALTER TABLE project_files ADD CONSTRAINT chk_file_size CHECK (file_size > 0 AND file_size <= 52428800)');
     }
 
     /**

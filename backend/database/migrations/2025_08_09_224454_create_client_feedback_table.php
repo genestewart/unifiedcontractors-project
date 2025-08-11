@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -31,10 +32,10 @@ return new class extends Migration
             $table->index('client_email');
             $table->index('submitted_at');
             $table->index('reviewed_by');
-            
-            // Rating constraint (1-5 stars)
-            $table->check('rating IS NULL OR (rating >= 1 AND rating <= 5)');
         });
+        
+        // Add rating constraint using raw SQL (1-5 stars)
+        DB::statement('ALTER TABLE client_feedback ADD CONSTRAINT chk_rating CHECK (rating IS NULL OR (rating >= 1 AND rating <= 5))');
     }
 
     /**
