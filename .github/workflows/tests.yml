@@ -93,16 +93,20 @@ jobs:
       run: php artisan key:generate
       working-directory: backend
     
+    - name: Wait for MySQL to be ready
+      run: |
+        for i in {1..30}; do
+          if mysqladmin ping -h 127.0.0.1 -u root -ppassword --silent; then
+            echo "MySQL is ready"
+            break
+          fi
+          echo "Waiting for MySQL... ($i/30)"
+          sleep 2
+        done
+      
     - name: Run database migrations
       run: php artisan migrate --force
       working-directory: backend
-      env:
-        DB_CONNECTION: mysql
-        DB_HOST: localhost
-        DB_PORT: 3306
-        DB_DATABASE: unified_contractors_test
-        DB_USERNAME: root
-        DB_PASSWORD: password
     
     - name: Run backend unit tests
       run: php artisan test --testsuite=Unit --coverage-clover=coverage.xml
