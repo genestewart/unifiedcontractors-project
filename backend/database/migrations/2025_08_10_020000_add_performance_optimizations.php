@@ -48,10 +48,10 @@ return new class extends Migration
         });
 
         Schema::table('employees', function (Blueprint $table) {
-            // Composite index for authentication
-            $table->index(['email', 'status'], 'idx_employees_email_status');
+            // Composite index for authentication with active status
+            $table->index(['email', 'is_active'], 'idx_employees_email_active');
             
-            // Index for role-based queries
+            // Index for role-based queries  
             $table->index('role', 'idx_employees_role');
         });
 
@@ -60,10 +60,10 @@ return new class extends Migration
             $table->index(['project_id', 'submitted_at'], 'idx_feedback_project_date');
             
             // Index for rating analytics
-            $table->index('overall_rating', 'idx_feedback_rating');
+            $table->index('rating', 'idx_feedback_rating');
             
             // Composite index for recent feedback
-            $table->index(['project_id', 'overall_rating', 'submitted_at'], 'idx_feedback_project_rating_date');
+            $table->index(['project_id', 'rating', 'submitted_at'], 'idx_feedback_project_rating_date');
         });
 
         // Add database-specific optimizations
@@ -106,7 +106,7 @@ return new class extends Migration
         });
 
         Schema::table('employees', function (Blueprint $table) {
-            $table->dropIndex('idx_employees_email_status');
+            $table->dropIndex('idx_employees_email_active');
             $table->dropIndex('idx_employees_role');
         });
 
