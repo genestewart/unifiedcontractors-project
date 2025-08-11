@@ -74,14 +74,13 @@ return [
                 PDO::ATTR_EMULATE_PREPARES => false,
                 PDO::ATTR_STRINGIFY_FETCHES => false,
                 PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
-                // Connection pooling and performance settings
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET sql_mode='STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'",
+                // Connection pooling and performance settings  
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET sql_mode='STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'",
             ]) : [],
-            // Performance optimizations
+            // Performance optimizations (MySQL 8.0 compatible)
             'modes' => [
                 'STRICT_TRANS_TABLES',
-                'ERROR_FOR_DIVISION_BY_ZERO',
-                'NO_AUTO_CREATE_USER',
+                'ERROR_FOR_DIVISION_BY_ZERO', 
                 'NO_ENGINE_SUBSTITUTION',
             ],
             'pool' => [
