@@ -68,13 +68,12 @@ return new class extends Migration
 
         // Add database-specific optimizations
         if (DB::getDriverName() === 'mysql') {
-            // MySQL specific optimizations
+            // MySQL specific table optimizations
             DB::statement("ALTER TABLE projects ROW_FORMAT=COMPRESSED");
             DB::statement("ALTER TABLE project_files ROW_FORMAT=COMPRESSED");
             
-            // Enable query cache optimization
-            DB::statement("SET GLOBAL query_cache_size = 67108864"); // 64MB
-            DB::statement("SET GLOBAL query_cache_type = ON");
+            // Note: Global MySQL settings require SUPER privileges and are not
+            // suitable for CI environments or shared hosting
         }
 
         if (DB::getDriverName() === 'sqlite') {
