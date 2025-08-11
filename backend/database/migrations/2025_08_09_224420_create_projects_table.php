@@ -36,12 +36,10 @@ return new class extends Migration
             $table->index('created_by');
             $table->index(['start_date', 'end_date']);
             $table->index('is_public');
-            
-            // Constraints
-            $table->check('progress_percentage >= 0 AND progress_percentage <= 100');
         });
         
-        // Add check constraint for date order using raw SQL
+        // Add check constraints using raw SQL
+        DB::statement('ALTER TABLE projects ADD CONSTRAINT chk_progress_percentage CHECK (progress_percentage >= 0 AND progress_percentage <= 100)');
         DB::statement('ALTER TABLE projects ADD CONSTRAINT chk_date_order CHECK (end_date IS NULL OR end_date >= start_date)');
     }
 
