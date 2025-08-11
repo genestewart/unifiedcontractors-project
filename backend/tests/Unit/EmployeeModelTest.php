@@ -8,6 +8,7 @@ use App\Models\ProjectFile;
 use App\Models\ClientFeedback;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
@@ -33,7 +34,7 @@ class EmployeeModelTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_be_created_with_valid_data()
     {
         $employeeData = [
@@ -56,7 +57,7 @@ class EmployeeModelTest extends TestCase
         $this->assertNotNull($employee->created_at);
     }
 
-    /** @test */
+    #[Test]
     public function it_hashes_password_when_set()
     {
         $plainPassword = 'newpassword123';
@@ -67,7 +68,7 @@ class EmployeeModelTest extends TestCase
         $this->assertNotEquals($plainPassword, $this->employee->password_hash);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_correct_auth_password()
     {
         $hashedPassword = Hash::make('testpassword');
@@ -77,7 +78,7 @@ class EmployeeModelTest extends TestCase
         $this->assertEquals($hashedPassword, $this->employee->getAuthPassword());
     }
 
-    /** @test */
+    #[Test]
     public function it_generates_correct_full_name_attribute()
     {
         $this->assertEquals('John Doe', $this->employee->full_name);
@@ -90,7 +91,7 @@ class EmployeeModelTest extends TestCase
         $this->assertEquals('Alice Johnson', $employee->full_name);
     }
 
-    /** @test */
+    #[Test]
     public function it_hides_sensitive_attributes_in_serialization()
     {
         $this->employee->password_hash = Hash::make('secret');
@@ -104,7 +105,7 @@ class EmployeeModelTest extends TestCase
         $this->assertArrayHasKey('first_name', $array);
     }
 
-    /** @test */
+    #[Test]
     public function it_casts_attributes_correctly()
     {
         $this->employee->email_verified_at = '2024-01-01 12:00:00';
@@ -120,7 +121,7 @@ class EmployeeModelTest extends TestCase
         $this->assertTrue($this->employee->is_active);
     }
 
-    /** @test */
+    #[Test]
     public function it_checks_single_role_correctly()
     {
         $this->assertTrue($this->employee->hasRole('admin'));
@@ -128,7 +129,7 @@ class EmployeeModelTest extends TestCase
         $this->assertFalse($this->employee->hasRole('super_admin'));
     }
 
-    /** @test */
+    #[Test]
     public function it_checks_multiple_roles_correctly()
     {
         $this->assertTrue($this->employee->hasRole(['admin', 'employee']));
@@ -136,7 +137,7 @@ class EmployeeModelTest extends TestCase
         $this->assertFalse($this->employee->hasRole(['employee', 'project_manager']));
     }
 
-    /** @test */
+    #[Test]
     public function it_checks_any_role_correctly()
     {
         $this->assertTrue($this->employee->hasAnyRole(['admin', 'employee']));
@@ -144,7 +145,7 @@ class EmployeeModelTest extends TestCase
         $this->assertFalse($this->employee->hasAnyRole(['employee', 'project_manager']));
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_correct_permissions_for_super_admin()
     {
         $employee = Employee::factory()->create(['role' => 'super_admin']);
@@ -160,7 +161,7 @@ class EmployeeModelTest extends TestCase
         $this->assertContains('admin.all', $permissions);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_correct_permissions_for_admin()
     {
         $permissions = $this->employee->permissions; // employee role is 'admin'
@@ -172,7 +173,7 @@ class EmployeeModelTest extends TestCase
         $this->assertNotContains('admin.all', $permissions);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_correct_permissions_for_project_manager()
     {
         $employee = Employee::factory()->create(['role' => 'project_manager']);
@@ -186,7 +187,7 @@ class EmployeeModelTest extends TestCase
         $this->assertNotContains('projects.delete', $permissions);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_correct_permissions_for_employee()
     {
         $employee = Employee::factory()->create(['role' => 'employee']);
@@ -201,7 +202,7 @@ class EmployeeModelTest extends TestCase
         $this->assertNotContains('employees.create', $permissions);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_default_permissions_for_unknown_role()
     {
         $employee = Employee::factory()->create(['role' => 'unknown_role']);
@@ -211,7 +212,7 @@ class EmployeeModelTest extends TestCase
         $this->assertEquals(['projects.read', 'files.read'], $permissions);
     }
 
-    /** @test */
+    #[Test]
     public function it_checks_permissions_correctly()
     {
         $this->assertTrue($this->employee->hasPermission('employees.create'));
@@ -220,7 +221,7 @@ class EmployeeModelTest extends TestCase
         $this->assertFalse($this->employee->hasPermission('nonexistent.permission'));
     }
 
-    /** @test */
+    #[Test]
     public function it_has_correct_created_projects_relationship()
     {
         $project1 = Project::factory()->create(['created_by' => $this->employee->id]);
@@ -235,7 +236,7 @@ class EmployeeModelTest extends TestCase
         $this->assertFalse($createdProjects->contains($project3));
     }
 
-    /** @test */
+    #[Test]
     public function it_has_correct_assigned_projects_relationship()
     {
         $project1 = Project::factory()->create();
@@ -265,7 +266,7 @@ class EmployeeModelTest extends TestCase
         $this->assertNotNull($pivotData->assigned_at);
     }
 
-    /** @test */
+    #[Test]
     public function it_has_correct_uploaded_files_relationship()
     {
         $file1 = ProjectFile::factory()->create(['employee_id' => $this->employee->id]);
@@ -280,7 +281,7 @@ class EmployeeModelTest extends TestCase
         $this->assertFalse($uploadedFiles->contains($file3));
     }
 
-    /** @test */
+    #[Test]
     public function it_has_correct_reviewed_feedback_relationship()
     {
         $feedback1 = ClientFeedback::factory()->create(['reviewed_by' => $this->employee->id]);
@@ -295,7 +296,7 @@ class EmployeeModelTest extends TestCase
         $this->assertFalse($reviewedFeedback->contains($feedback3));
     }
 
-    /** @test */
+    #[Test]
     public function it_scopes_active_employees_correctly()
     {
         Employee::factory()->create(['is_active' => true]);
@@ -313,7 +314,7 @@ class EmployeeModelTest extends TestCase
         }
     }
 
-    /** @test */
+    #[Test]
     public function it_scopes_employees_by_role_correctly()
     {
         Employee::factory()->create(['role' => 'admin']);
@@ -337,7 +338,7 @@ class EmployeeModelTest extends TestCase
         }
     }
 
-    /** @test */
+    #[Test]
     public function it_can_combine_scopes()
     {
         Employee::factory()->create(['role' => 'admin', 'is_active' => true]);
@@ -355,7 +356,7 @@ class EmployeeModelTest extends TestCase
         }
     }
 
-    /** @test */
+    #[Test]
     public function it_validates_required_fields()
     {
         $this->expectException(\Illuminate\Database\QueryException::class);
@@ -367,7 +368,7 @@ class EmployeeModelTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_enforces_unique_email_constraint()
     {
         $this->expectException(\Illuminate\Database\QueryException::class);
@@ -376,7 +377,7 @@ class EmployeeModelTest extends TestCase
         Employee::factory()->create(['email' => 'duplicate@example.com']);
     }
 
-    /** @test */
+    #[Test]
     public function it_updates_login_tracking_fields()
     {
         $this->employee->failed_login_attempts = 3;
@@ -388,7 +389,7 @@ class EmployeeModelTest extends TestCase
         $this->assertInstanceOf(\Carbon\Carbon::class, $this->employee->last_login_at);
     }
 
-    /** @test */
+    #[Test]
     public function it_handles_email_verification()
     {
         $this->assertNull($this->employee->email_verified_at);
@@ -400,7 +401,7 @@ class EmployeeModelTest extends TestCase
         $this->assertInstanceOf(\Carbon\Carbon::class, $this->employee->email_verified_at);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_be_soft_deleted()
     {
         // Note: If soft deletes are implemented, test here
@@ -412,7 +413,7 @@ class EmployeeModelTest extends TestCase
         $this->assertNull(Employee::find($employeeId));
     }
 
-    /** @test */
+    #[Test]
     public function it_maintains_data_integrity_with_relationships()
     {
         $project = Project::factory()->create(['created_by' => $this->employee->id]);
@@ -427,7 +428,7 @@ class EmployeeModelTest extends TestCase
         $this->assertTrue(true); // Placeholder for relationship integrity tests
     }
 
-    /** @test */
+    #[Test]
     public function it_formats_timestamps_correctly()
     {
         $this->employee->created_at = '2024-01-01 12:00:00';
@@ -438,7 +439,7 @@ class EmployeeModelTest extends TestCase
         $this->assertEquals('2024-01-01 12:00:00', $this->employee->created_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
+    #[Test]
     public function it_handles_mass_assignment_protection()
     {
         $maliciousData = [

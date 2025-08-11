@@ -8,6 +8,7 @@ use App\Models\ProjectFile;
 use App\Models\ClientFeedback;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Carbon\Carbon;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
@@ -41,7 +42,7 @@ class ProjectModelTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_be_created_with_valid_data()
     {
         $projectData = [
@@ -67,7 +68,7 @@ class ProjectModelTest extends TestCase
         $this->assertEquals(0, $project->progress_percentage);
     }
 
-    /** @test */
+    #[Test]
     public function it_casts_attributes_correctly()
     {
         $this->assertInstanceOf(Carbon::class, $this->project->start_date);
@@ -78,7 +79,7 @@ class ProjectModelTest extends TestCase
         $this->assertEquals(50.00, $this->project->progress_percentage);
     }
 
-    /** @test */
+    #[Test]
     public function it_automatically_generates_qr_code_token_on_creation()
     {
         $newProject = Project::factory()->create();
@@ -88,7 +89,7 @@ class ProjectModelTest extends TestCase
         $this->assertStringContainsString('_', $newProject->qr_code_token);
     }
 
-    /** @test */
+    #[Test]
     public function it_generates_unique_qr_code_tokens()
     {
         $project1 = Project::factory()->create();
@@ -99,7 +100,7 @@ class ProjectModelTest extends TestCase
         $this->assertStringStartsWith('UC_', $project2->qr_code_token);
     }
 
-    /** @test */
+    #[Test]
     public function it_preserves_existing_qr_code_token_when_provided()
     {
         $customToken = 'UC_CUSTOM123_' . time();
@@ -111,7 +112,7 @@ class ProjectModelTest extends TestCase
         $this->assertEquals($customToken, $project->qr_code_token);
     }
 
-    /** @test */
+    #[Test]
     public function it_generates_correct_qr_code_url_attribute()
     {
         $expectedUrl = url("/client/project/{$this->project->qr_code_token}");
@@ -119,7 +120,7 @@ class ProjectModelTest extends TestCase
         $this->assertEquals($expectedUrl, $this->project->qr_code_url);
     }
 
-    /** @test */
+    #[Test]
     public function it_calculates_qr_code_expiration_correctly()
     {
         // Test non-expired QR code
@@ -141,7 +142,7 @@ class ProjectModelTest extends TestCase
         $this->assertFalse($this->project->is_qr_code_expired);
     }
 
-    /** @test */
+    #[Test]
     public function it_calculates_days_until_deadline_correctly()
     {
         // Test future deadline
@@ -163,7 +164,7 @@ class ProjectModelTest extends TestCase
         $this->assertNull($this->project->days_until_deadline);
     }
 
-    /** @test */
+    #[Test]
     public function it_calculates_progress_status_correctly()
     {
         // Test completed status
@@ -200,7 +201,7 @@ class ProjectModelTest extends TestCase
         $this->assertEquals('needs_attention', $this->project->progress_status);
     }
 
-    /** @test */
+    #[Test]
     public function it_regenerates_qr_code_successfully()
     {
         $originalToken = $this->project->qr_code_token;
@@ -212,7 +213,7 @@ class ProjectModelTest extends TestCase
         $this->assertStringStartsWith('UC_', $this->project->qr_code_token);
     }
 
-    /** @test */
+    #[Test]
     public function it_regenerates_qr_code_with_expiration()
     {
         $result = $this->project->regenerateQRCode(48); // 48 hours
@@ -224,7 +225,7 @@ class ProjectModelTest extends TestCase
         $this->assertTrue($this->project->qr_code_expires_at->isBefore(now()->addHours(49)));
     }
 
-    /** @test */
+    #[Test]
     public function it_regenerates_qr_code_without_expiration()
     {
         $this->project->qr_code_expires_at = now()->addHours(24);
@@ -236,7 +237,7 @@ class ProjectModelTest extends TestCase
         $this->assertNull($this->project->qr_code_expires_at);
     }
 
-    /** @test */
+    #[Test]
     public function it_checks_qr_code_accessibility_correctly()
     {
         // Public project with non-expired QR code
@@ -259,7 +260,7 @@ class ProjectModelTest extends TestCase
         $this->assertTrue($this->project->isQRCodeAccessible());
     }
 
-    /** @test */
+    #[Test]
     public function it_has_correct_creator_relationship()
     {
         $creator = $this->project->creator;
@@ -269,7 +270,7 @@ class ProjectModelTest extends TestCase
         $this->assertEquals($this->employee->email, $creator->email);
     }
 
-    /** @test */
+    #[Test]
     public function it_has_correct_team_members_relationship()
     {
         $employee1 = Employee::factory()->create();
@@ -297,7 +298,7 @@ class ProjectModelTest extends TestCase
         $this->assertNotNull($firstMember->pivot->assigned_at);
     }
 
-    /** @test */
+    #[Test]
     public function it_has_correct_files_relationship()
     {
         $file1 = ProjectFile::factory()->create(['project_id' => $this->project->id]);
@@ -312,7 +313,7 @@ class ProjectModelTest extends TestCase
         $this->assertFalse($files->contains($file3));
     }
 
-    /** @test */
+    #[Test]
     public function it_has_correct_public_files_relationship()
     {
         $publicFile = ProjectFile::factory()->create([
@@ -331,7 +332,7 @@ class ProjectModelTest extends TestCase
         $this->assertFalse($publicFiles->contains($privateFile));
     }
 
-    /** @test */
+    #[Test]
     public function it_has_correct_feedback_relationship()
     {
         $feedback1 = ClientFeedback::factory()->create(['project_id' => $this->project->id]);
@@ -346,7 +347,7 @@ class ProjectModelTest extends TestCase
         $this->assertFalse($feedback->contains($feedback3));
     }
 
-    /** @test */
+    #[Test]
     public function it_has_correct_recent_feedback_relationship()
     {
         $recentFeedback = ClientFeedback::factory()->create([
@@ -365,7 +366,7 @@ class ProjectModelTest extends TestCase
         $this->assertFalse($recent->contains($oldFeedback));
     }
 
-    /** @test */
+    #[Test]
     public function it_scopes_by_status_correctly()
     {
         Project::factory()->create(['status' => 'active']);
@@ -385,7 +386,7 @@ class ProjectModelTest extends TestCase
         }
     }
 
-    /** @test */
+    #[Test]
     public function it_scopes_active_projects_correctly()
     {
         Project::factory()->create(['status' => 'planning']);
@@ -403,7 +404,7 @@ class ProjectModelTest extends TestCase
         }
     }
 
-    /** @test */
+    #[Test]
     public function it_scopes_public_projects_correctly()
     {
         Project::factory()->create(['is_public' => true]);
@@ -421,7 +422,7 @@ class ProjectModelTest extends TestCase
         }
     }
 
-    /** @test */
+    #[Test]
     public function it_scopes_projects_assigned_to_employee()
     {
         $employee = Employee::factory()->create();
@@ -441,7 +442,7 @@ class ProjectModelTest extends TestCase
         $this->assertFalse($assignedProjects->contains($project3));
     }
 
-    /** @test */
+    #[Test]
     public function it_searches_projects_correctly()
     {
         Project::factory()->create(['name' => 'Website Development', 'client_name' => 'ACME Corp']);
@@ -467,7 +468,7 @@ class ProjectModelTest extends TestCase
         $this->assertCount(1, $caseResults);
     }
 
-    /** @test */
+    #[Test]
     public function it_filters_by_client_email()
     {
         Project::factory()->create(['client_email' => 'client1@example.com']);
@@ -483,7 +484,7 @@ class ProjectModelTest extends TestCase
         }
     }
 
-    /** @test */
+    #[Test]
     public function it_can_combine_multiple_scopes()
     {
         $employee = Employee::factory()->create();
@@ -505,7 +506,7 @@ class ProjectModelTest extends TestCase
         $this->assertTrue($results->contains($project1));
     }
 
-    /** @test */
+    #[Test]
     public function it_appends_computed_attributes_correctly()
     {
         $this->project->qr_code_expires_at = now()->addDays(1);
@@ -524,7 +525,7 @@ class ProjectModelTest extends TestCase
         $this->assertEquals(5, $array['days_until_deadline']);
     }
 
-    /** @test */
+    #[Test]
     public function it_validates_required_fields()
     {
         $this->expectException(\Illuminate\Database\QueryException::class);
@@ -536,7 +537,7 @@ class ProjectModelTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_handles_mass_assignment_protection()
     {
         $maliciousData = [
@@ -554,7 +555,7 @@ class ProjectModelTest extends TestCase
         $this->assertEquals('MALICIOUS_TOKEN', $project->qr_code_token);
     }
 
-    /** @test */
+    #[Test]
     public function it_maintains_data_integrity()
     {
         // Test that progress percentage stays within bounds
