@@ -1,0 +1,208 @@
+{
+  "current": {
+    "bundleSize": {
+      "totalSize": 387,
+      "gzippedSize": 116,
+      "jsSize": 304,
+      "cssSize": 83,
+      "files": [
+        {
+          "name": "index-wFKlhvRq.js",
+          "size": 299869
+        },
+        {
+          "name": "FilesView-eyJ4J48o.css",
+          "size": 2479
+        },
+        {
+          "name": "FileUpload-j2lCA7ge.css",
+          "size": 5086
+        },
+        {
+          "name": "ClientReviewView-DSPCGmkP.css",
+          "size": 9118
+        },
+        {
+          "name": "ResetPasswordView-N-f8tlAb.css",
+          "size": 1236
+        },
+        {
+          "name": "FeedbackSuccessView-oIEDGd1V.css",
+          "size": 3103
+        },
+        {
+          "name": "ProjectDetailView-Bx66G4HH.css",
+          "size": 9916
+        },
+        {
+          "name": "AboutView-CwVbxBI0.css",
+          "size": 2396
+        },
+        {
+          "name": "ClientFeedbackView-Dp4dr-fO.css",
+          "size": 7557
+        },
+        {
+          "name": "ServicesView-N9rFev1f.css",
+          "size": 1273
+        },
+        {
+          "name": "ProjectForm-C6E70kmb.css",
+          "size": 2226
+        },
+        {
+          "name": "ClientHelpView-D2cNhjz3.css",
+          "size": 2424
+        },
+        {
+          "name": "ProjectsView-BIiVKyIH.css",
+          "size": 3374
+        },
+        {
+          "name": "UnauthorizedView-C8_AxEsH.css",
+          "size": 1812
+        },
+        {
+          "name": "LoginView-3WLA3CbA.css",
+          "size": 5106
+        },
+        {
+          "name": "DashboardView-DpH_pP1S.css",
+          "size": 7398
+        },
+        {
+          "name": "ClientGalleryView-C3qLxVuB.css",
+          "size": 7161
+        },
+        {
+          "name": "index-C874JYSJ.js",
+          "size": 11621
+        },
+        {
+          "name": "ClientReviewLayout-CY1Z1mUt.css",
+          "size": 7657
+        },
+        {
+          "name": "PasswordDialog-D_N6mUAn.css",
+          "size": 5748
+        }
+      ]
+    },
+    "lighthouse": {
+      "error": "Command failed: npm run lighthouse\nnpm WARN exec The following package was not found and will be installed: @lhci/cli@0.13.0\nnpm WARN deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.\nnpm WARN deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported\nnpm WARN deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported\nnpm WARN deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported\nError [ERR_REQUIRE_ESM]: require() of ES Module /home/gene/Documents/VSCode/unifiedcontractors-project/lighthouserc.js from /home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/utils/src/lighthouserc.js not supported.\n/home/gene/Documents/VSCode/unifiedcontractors-project/lighthouserc.js is treated as an ES module file as it is a .js file whose nearest parent package.json contains \"type\": \"module\" which declares all .js files in that package scope as ES modules.\nInstead either rename /home/gene/Documents/VSCode/unifiedcontractors-project/lighthouserc.js to end in .cjs, change the requiring code to use dynamic import() which is available in all CommonJS modules, or change \"type\": \"module\" to \"type\": \"commonjs\" in /home/gene/Documents/VSCode/unifiedcontractors-project/package.json to treat all .js files as CommonJS (using .mjs for all ES modules instead).\n\n    at parseFileContentToJSON (/home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/utils/src/lighthouserc.js:78:12)\n    at loadRcFile (/home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/utils/src/lighthouserc.js:63:14)\n    at loadAndParseRcFile (/home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/utils/src/lighthouserc.js:52:38)\n    at createYargsConfigArguments (/home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/cli/src/cli.js:37:11)\n    at run (/home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/cli/src/cli.js:96:16)"
+    },
+    "buildTime": 15537,
+    "timestamp": "2025-08-10T01:39:59.061Z"
+  },
+  "history": [
+    {
+      "bundleSize": {
+        "totalSize": 387,
+        "gzippedSize": 116,
+        "jsSize": 304,
+        "cssSize": 83,
+        "files": [
+          {
+            "name": "index-wFKlhvRq.js",
+            "size": 299869
+          },
+          {
+            "name": "FilesView-eyJ4J48o.css",
+            "size": 2479
+          },
+          {
+            "name": "FileUpload-j2lCA7ge.css",
+            "size": 5086
+          },
+          {
+            "name": "ClientReviewView-DSPCGmkP.css",
+            "size": 9118
+          },
+          {
+            "name": "ResetPasswordView-N-f8tlAb.css",
+            "size": 1236
+          },
+          {
+            "name": "FeedbackSuccessView-oIEDGd1V.css",
+            "size": 3103
+          },
+          {
+            "name": "ProjectDetailView-Bx66G4HH.css",
+            "size": 9916
+          },
+          {
+            "name": "AboutView-CwVbxBI0.css",
+            "size": 2396
+          },
+          {
+            "name": "ClientFeedbackView-Dp4dr-fO.css",
+            "size": 7557
+          },
+          {
+            "name": "ServicesView-N9rFev1f.css",
+            "size": 1273
+          },
+          {
+            "name": "ProjectForm-C6E70kmb.css",
+            "size": 2226
+          },
+          {
+            "name": "ClientHelpView-D2cNhjz3.css",
+            "size": 2424
+          },
+          {
+            "name": "ProjectsView-BIiVKyIH.css",
+            "size": 3374
+          },
+          {
+            "name": "UnauthorizedView-C8_AxEsH.css",
+            "size": 1812
+          },
+          {
+            "name": "LoginView-3WLA3CbA.css",
+            "size": 5106
+          },
+          {
+            "name": "DashboardView-DpH_pP1S.css",
+            "size": 7398
+          },
+          {
+            "name": "ClientGalleryView-C3qLxVuB.css",
+            "size": 7161
+          },
+          {
+            "name": "index-C874JYSJ.js",
+            "size": 11621
+          },
+          {
+            "name": "ClientReviewLayout-CY1Z1mUt.css",
+            "size": 7657
+          },
+          {
+            "name": "PasswordDialog-D_N6mUAn.css",
+            "size": 5748
+          }
+        ]
+      },
+      "lighthouse": {
+        "error": "Command failed: npm run lighthouse\nnpm WARN exec The following package was not found and will be installed: @lhci/cli@0.13.0\nnpm WARN deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.\nnpm WARN deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported\nnpm WARN deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported\nnpm WARN deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported\nError [ERR_REQUIRE_ESM]: require() of ES Module /home/gene/Documents/VSCode/unifiedcontractors-project/lighthouserc.js from /home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/utils/src/lighthouserc.js not supported.\n/home/gene/Documents/VSCode/unifiedcontractors-project/lighthouserc.js is treated as an ES module file as it is a .js file whose nearest parent package.json contains \"type\": \"module\" which declares all .js files in that package scope as ES modules.\nInstead either rename /home/gene/Documents/VSCode/unifiedcontractors-project/lighthouserc.js to end in .cjs, change the requiring code to use dynamic import() which is available in all CommonJS modules, or change \"type\": \"module\" to \"type\": \"commonjs\" in /home/gene/Documents/VSCode/unifiedcontractors-project/package.json to treat all .js files as CommonJS (using .mjs for all ES modules instead).\n\n    at parseFileContentToJSON (/home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/utils/src/lighthouserc.js:78:12)\n    at loadRcFile (/home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/utils/src/lighthouserc.js:63:14)\n    at loadAndParseRcFile (/home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/utils/src/lighthouserc.js:52:38)\n    at createYargsConfigArguments (/home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/cli/src/cli.js:37:11)\n    at run (/home/gene/.npm/_npx/187b0a524ec27b24/node_modules/@lhci/cli/src/cli.js:96:16)"
+      },
+      "buildTime": 15537,
+      "timestamp": "2025-08-10T01:39:59.061Z"
+    }
+  ],
+  "summary": {
+    "grade": "B",
+    "issues": [],
+    "strengths": [
+      "Optimal bundle size"
+    ]
+  },
+  "recommendations": [
+    {
+      "type": "javascript",
+      "priority": "medium",
+      "message": "Consider lazy loading for non-critical JavaScript"
+    }
+  ]
+}

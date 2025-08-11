@@ -1,0 +1,39 @@
+User-agent: *
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+Disallow: /*.json
+Disallow: /test
+Disallow: /dist
+Disallow: /node_modules
+Disallow: /coverage
+Allow: /
+
+# Sitemap location
+Sitemap: https://unifiedcontractors.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Allow common crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Performance optimization - prevent crawling of development files
+User-agent: *
+Disallow: /*.map$
+Disallow: /*.scss$
+Disallow: /*.less$
+Disallow: /*.ts$
+Disallow: /src/
+Disallow: /vite.config.*
+Disallow: /package*.json

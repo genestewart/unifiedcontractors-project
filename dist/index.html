@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Performance optimizations -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Resource hints for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="modulepreload" href="data:text/javascript;base64,aW1wb3J0IHsgY3JlYXRlQXBwIH0gZnJvbSAndnVlJwppbXBvcnQgeyBjcmVhdGVQaW5pYSB9IGZyb20gJ3BpbmlhJwppbXBvcnQgUHJpbWVWdWUgZnJvbSAncHJpbWV2dWUvY29uZmlnJwppbXBvcnQgTGFyYSBmcm9tICdAcHJpbWV2dWUvdGhlbWVzL2xhcmEnCmltcG9ydCBUb2FzdFNlcnZpY2UgZnJvbSAncHJpbWV2dWUvdG9hc3RzZXJ2aWNlJwppbXBvcnQgQXBwIGZyb20gJy4vQXBwLnZ1ZScKaW1wb3J0IHJvdXRlciBmcm9tICcuL3JvdXRlcicKCi8vIE9wdGltaXplZCBDU1MgaW1wb3J0cyAtIGxvYWQgY3JpdGljYWwgQ1NTIGZpcnN0CmltcG9ydCAnLi9zdHlsZXMvbWFpbi5jc3MnCgovLyBMYXp5IGxvYWQgbm9uLWNyaXRpY2FsIENTUwpjb25zdCBsb2FkTm9uQ3JpdGljYWxDU1MgPSAoKSA9PiB7CiAgLy8gTG9hZCBQcmltZUljb25zCiAgY29uc3QgcHJpbWVJY29uc0xpbmsgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdsaW5rJykKICBwcmltZUljb25zTGluay5yZWwgPSAnc3R5bGVzaGVldCcKICBwcmltZUljb25zTGluay5ocmVmID0gJy9ub2RlX21vZHVsZXMvcHJpbWVpY29ucy9wcmltZWljb25zLmNzcycKICBwcmltZUljb25zTGluay5tZWRpYSA9ICdwcmludCcKICBwcmltZUljb25zTGluay5vbmxvYWQgPSAoKSA9PiB7IHByaW1lSWNvbnNMaW5rLm1lZGlhID0gJ2FsbCcgfQogIGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQocHJpbWVJY29uc0xpbmspCiAgCiAgLy8gTG9hZCBCb290c3RyYXAgdXRpbGl0aWVzCiAgY29uc3QgYm9vdHN0cmFwVXRpbGl0aWVzTGluayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2xpbmsnKQogIGJvb3RzdHJhcFV0aWxpdGllc0xpbmsucmVsID0gJ3N0eWxlc2hlZXQnCiAgYm9vdHN0cmFwVXRpbGl0aWVzTGluay5ocmVmID0gJy9ub2RlX21vZHVsZXMvYm9vdHN0cmFwL2Rpc3QvY3NzL2Jvb3RzdHJhcC11dGlsaXRpZXMubWluLmNzcycKICBib290c3RyYXBVdGlsaXRpZXNMaW5rLm1lZGlhID0gJ3ByaW50JwogIGJvb3RzdHJhcFV0aWxpdGllc0xpbmsub25sb2FkID0gKCkgPT4geyBib290c3RyYXBVdGlsaXRpZXNMaW5rLm1lZGlhID0gJ2FsbCcgfQogIGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoYm9vdHN0cmFwVXRpbGl0aWVzTGluaykKICAKICAvLyBMb2FkIEJvb3RzdHJhcCBncmlkCiAgY29uc3QgYm9vdHN0cmFwR3JpZExpbmsgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdsaW5rJykKICBib290c3RyYXBHcmlkTGluay5yZWwgPSAnc3R5bGVzaGVldCcKICBib290c3RyYXBHcmlkTGluay5ocmVmID0gJy9ub2RlX21vZHVsZXMvYm9vdHN0cmFwL2Rpc3QvY3NzL2Jvb3RzdHJhcC1ncmlkLm1pbi5jc3MnCiAgYm9vdHN0cmFwR3JpZExpbmsubWVkaWEgPSAncHJpbnQnCiAgYm9vdHN0cmFwR3JpZExpbmsub25sb2FkID0gKCkgPT4geyBib290c3RyYXBHcmlkTGluay5tZWRpYSA9ICdhbGwnIH0KICBkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKGJvb3RzdHJhcEdyaWRMaW5rKQp9CgovLyBMb2FkIG5vbi1jcml0aWNhbCBDU1MgYWZ0ZXIgcGFnZSBsb2FkCmlmIChkb2N1bWVudC5yZWFkeVN0YXRlID09PSAnbG9hZGluZycpIHsKICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJywgbG9hZE5vbkNyaXRpY2FsQ1NTKQp9IGVsc2UgewogIGxvYWROb25Dcml0aWNhbENTUygpCn0KCmNvbnN0IGFwcCA9IGNyZWF0ZUFwcChBcHApCgovLyBQZXJmb3JtYW5jZSBvcHRpbWl6ZWQgUGluaWEgc3RvcmUKY29uc3QgcGluaWEgPSBjcmVhdGVQaW5pYSgpCgovLyBBZGQgcGVyZm9ybWFuY2UgbW9uaXRvcmluZwppZiAoaW1wb3J0Lm1ldGEuZW52LlBST0QpIHsKICAvLyBQZXJmb3JtYW5jZSBvYnNlcnZlciBmb3IgbW9uaXRvcmluZyBDb3JlIFdlYiBWaXRhbHMKICBjb25zdCBwZXJmb3JtYW5jZU9ic2VydmVyID0gbmV3IFBlcmZvcm1hbmNlT2JzZXJ2ZXIoKGxpc3QpID0+IHsKICAgIGZvciAoY29uc3QgZW50cnkgb2YgbGlzdC5nZXRFbnRyaWVzKCkpIHsKICAgICAgaWYgKGVudHJ5LmVudHJ5VHlwZSA9PT0gJ25hdmlnYXRpb24nKSB7CiAgICAgICAgY29uc29sZS5sb2coJ05hdmlnYXRpb24gcGVyZm9ybWFuY2U6JywgewogICAgICAgICAgZG9tQ29udGVudExvYWRlZDogZW50cnkuZG9tQ29udGVudExvYWRlZEV2ZW50RW5kIC0gZW50cnkuZG9tQ29udGVudExvYWRlZEV2ZW50U3RhcnQsCiAgICAgICAgICBsb2FkOiBlbnRyeS5sb2FkRXZlbnRFbmQgLSBlbnRyeS5sb2FkRXZlbnRTdGFydCwKICAgICAgICAgIGZpcnN0UGFpbnQ6IGVudHJ5LnJlc3BvbnNlRW5kIC0gZW50cnkucmVxdWVzdFN0YXJ0CiAgICAgICAgfSkKICAgICAgfQogICAgICAKICAgICAgaWYgKGVudHJ5LmVudHJ5VHlwZSA9PT0gJ2xhcmdlc3QtY29udGVudGZ1bC1wYWludCcpIHsKICAgICAgICBjb25zb2xlLmxvZygnTENQOicsIGVudHJ5LnN0YXJ0VGltZSkKICAgICAgfQogICAgICAKICAgICAgaWYgKGVudHJ5LmVudHJ5VHlwZSA9PT0gJ2ZpcnN0LWlucHV0JykgewogICAgICAgIGNvbnNvbGUubG9nKCdGSUQ6JywgZW50cnkucHJvY2Vzc2luZ1N0YXJ0IC0gZW50cnkuc3RhcnRUaW1lKQogICAgICB9CiAgICAgIAogICAgICBpZiAoZW50cnkuZW50cnlUeXBlID09PSAnbGF5b3V0LXNoaWZ0JykgewogICAgICAgIGNvbnNvbGUubG9nKCdDTFM6JywgZW50cnkudmFsdWUpCiAgICAgIH0KICAgIH0KICB9KQogIAogIHBlcmZvcm1hbmNlT2JzZXJ2ZXIub2JzZXJ2ZSh7IGVudHJ5VHlwZXM6IFsnbmF2aWdhdGlvbicsICdsYXJnZXN0LWNvbnRlbnRmdWwtcGFpbnQnLCAnZmlyc3QtaW5wdXQnLCAnbGF5b3V0LXNoaWZ0J10gfSkKfQoKYXBwLnVzZShwaW5pYSkKYXBwLnVzZShyb3V0ZXIpCmFwcC51c2UoUHJpbWVWdWUsIHsKICB0aGVtZTogewogICAgcHJlc2V0OiBMYXJhLAogICAgb3B0aW9uczogewogICAgICBwcmVmaXg6ICdwJywKICAgICAgZGFya01vZGVTZWxlY3RvcjogJ3N5c3RlbScsCiAgICAgIGNzc0xheWVyOiBmYWxzZQogICAgfQogIH0KfSkKYXBwLnVzZShUb2FzdFNlcnZpY2UpCgovLyBQcmVsb2FkIGNyaXRpY2FsIHJvdXRlcwpyb3V0ZXIuYmVmb3JlRWFjaCgodG8sIGZyb20sIG5leHQpID0+IHsKICAvLyBQcmVsb2FkIHRoZSBuZXh0IGxpa2VseSByb3V0ZQogIGNvbnN0IHByZWxvYWRSb3V0ZXMgPSB7CiAgICAnLyc6IFsnL3NlcnZpY2VzJywgJy9hYm91dCddLAogICAgJy9zZXJ2aWNlcyc6IFsnL2NvbnRhY3QnLCAnL3BvcnRmb2xpbyddLAogICAgJy9hYm91dCc6IFsnL3NlcnZpY2VzJywgJy9jb250YWN0J10KICB9CiAgCiAgY29uc3Qgcm91dGVzVG9QcmVsb2FkID0gcHJlbG9hZFJvdXRlc1t0by5wYXRoXQogIGlmIChyb3V0ZXNUb1ByZWxvYWQpIHsKICAgIHJvdXRlc1RvUHJlbG9hZC5mb3JFYWNoKHJvdXRlID0+IHsKICAgICAgY29uc3Qgcm91dGVSZWNvcmQgPSByb3V0ZXIucmVzb2x2ZShyb3V0ZSkKICAgICAgaWYgKHJvdXRlUmVjb3JkLm1hdGNoZWRbMF0/LmNvbXBvbmVudHM/LmRlZmF1bHQpIHsKICAgICAgICAvLyBQcmVsb2FkIHRoZSBjb21wb25lbnQKICAgICAgICByb3V0ZVJlY29yZC5tYXRjaGVkWzBdLmNvbXBvbmVudHMuZGVmYXVsdCgpCiAgICAgIH0KICAgIH0pCiAgfQogIAogIG5leHQoKQp9KQoKYXBwLm1vdW50KCcjYXBwJyk=">
+    <link rel="modulepreload" href="data:application/octet-stream;base64,PHRlbXBsYXRlPgogIDxkaXYgaWQ9ImFwcCI+CiAgICA8IS0tIFB1YmxpYyBMYXlvdXQgKGRlZmF1bHQpIC0tPgogICAgPHRlbXBsYXRlIHYtaWY9IiFjdXJyZW50TGF5b3V0IHx8IGN1cnJlbnRMYXlvdXQgPT09ICdwdWJsaWMnIj4KICAgICAgPCEtLSBTa2lwIE5hdmlnYXRpb24gTGlua3MgZm9yIFNjcmVlbiBSZWFkZXJzIC0tPgogICAgICA8ZGl2IGNsYXNzPSJza2lwLWxpbmtzIj4KICAgICAgICA8YQogICAgICAgICAgaHJlZj0iI21haW4tY29udGVudCIKICAgICAgICAgIGNsYXNzPSJza2lwLWxpbmsiCiAgICAgICAgICBAY2xpY2s9ImZvY3VzTWFpbkNvbnRlbnQiCiAgICAgICAgPgogICAgICAgICAgU2tpcCB0byBtYWluIGNvbnRlbnQKICAgICAgICA8L2E+CiAgICAgICAgPGEKICAgICAgICAgIGhyZWY9IiNtYWluLW5hdmlnYXRpb24iCiAgICAgICAgICBjbGFzcz0ic2tpcC1saW5rIgogICAgICAgID4KICAgICAgICAgIFNraXAgdG8gbmF2aWdhdGlvbgogICAgICAgIDwvYT4KICAgICAgPC9kaXY+CgogICAgICA8SGVhZGVyTmF2IGlkPSJtYWluLW5hdmlnYXRpb24iIC8+CiAgICAgIDxSb3V0ZXJWaWV3IGlkPSJtYWluLWNvbnRlbnQiIC8+CiAgICAgIDxGb290ZXJTZWN0aW9uIC8+CiAgICA8L3RlbXBsYXRlPgoKICAgIDwhLS0gTWluaW1hbCBMYXlvdXQgKGF1dGggcGFnZXMpIC0tPgogICAgPE1pbmltYWxMYXlvdXQgdi1lbHNlLWlmPSJjdXJyZW50TGF5b3V0ID09PSAnbWluaW1hbCciIC8+CgogICAgPCEtLSBFbXBsb3llZSBMYXlvdXQgKGF1dGhlbnRpY2F0ZWQgZW1wbG95ZWUgYXJlYSkgLS0+CiAgICA8RW1wbG95ZWVMYXlvdXQgdi1lbHNlLWlmPSJjdXJyZW50TGF5b3V0ID09PSAnZW1wbG95ZWUnIiAvPgoKICAgIDwhLS0gQ2xpZW50IExheW91dCAoUVIgY29kZSBhY2Nlc3MpIC0tPgogICAgPENsaWVudExheW91dCB2LWVsc2UtaWY9ImN1cnJlbnRMYXlvdXQgPT09ICdjbGllbnQnIiAvPgoKICAgIDwhLS0gRmFsbGJhY2sgdG8gcHVibGljIGxheW91dCAtLT4KICAgIDx0ZW1wbGF0ZSB2LWVsc2U+CiAgICAgIDxIZWFkZXJOYXYgaWQ9Im1haW4tbmF2aWdhdGlvbiIgLz4KICAgICAgPFJvdXRlclZpZXcgaWQ9Im1haW4tY29udGVudCIgLz4KICAgICAgPEZvb3RlclNlY3Rpb24gLz4KICAgIDwvdGVtcGxhdGU+CiAgPC9kaXY+CjwvdGVtcGxhdGU+Cgo8c2NyaXB0IHNldHVwPgppbXBvcnQgeyBSb3V0ZXJWaWV3IH0gZnJvbSAndnVlLXJvdXRlcicKaW1wb3J0IHsgcmVmLCB3YXRjaCwgb25Nb3VudGVkIH0gZnJvbSAndnVlJwppbXBvcnQgeyB1c2VSb3V0ZSB9IGZyb20gJ3Z1ZS1yb3V0ZXInCmltcG9ydCB7IHVzZUF1dGhTdG9yZSB9IGZyb20gJ0Avc3RvcmVzL2F1dGgnCgovLyBMYXlvdXQgQ29tcG9uZW50cwppbXBvcnQgSGVhZGVyTmF2IGZyb20gJy4vY29tcG9uZW50cy9sYXlvdXQvSGVhZGVyTmF2LnZ1ZScKaW1wb3J0IEZvb3RlclNlY3Rpb24gZnJvbSAnLi9jb21wb25lbnRzL2xheW91dC9Gb290ZXJTZWN0aW9uLnZ1ZScKaW1wb3J0IE1pbmltYWxMYXlvdXQgZnJvbSAnLi9jb21wb25lbnRzL2xheW91dC9NaW5pbWFsTGF5b3V0LnZ1ZScKaW1wb3J0IEVtcGxveWVlTGF5b3V0IGZyb20gJy4vY29tcG9uZW50cy9sYXlvdXQvRW1wbG95ZWVMYXlvdXQudnVlJwppbXBvcnQgQ2xpZW50TGF5b3V0IGZyb20gJy4vY29tcG9uZW50cy9sYXlvdXQvQ2xpZW50TGF5b3V0LnZ1ZScKCmNvbnN0IHJvdXRlID0gdXNlUm91dGUoKQpjb25zdCBhdXRoU3RvcmUgPSB1c2VBdXRoU3RvcmUoKQoKLy8gQ3VycmVudCBsYXlvdXQgc3RhdGUKY29uc3QgY3VycmVudExheW91dCA9IHJlZigncHVibGljJykKCi8qKgogKiBEZXRlcm1pbmUgbGF5b3V0IGJhc2VkIG9uIHJvdXRlIG1ldGEKICovCmNvbnN0IHVwZGF0ZUxheW91dCA9ICgpID0+IHsKICBjdXJyZW50TGF5b3V0LnZhbHVlID0gcm91dGUubWV0YT8ubGF5b3V0IHx8ICdwdWJsaWMnCn0KCi8qKgogKiBGb2N1cyB0aGUgbWFpbiBjb250ZW50IGFyZWEgd2hlbiBza2lwIGxpbmsgaXMgYWN0aXZhdGVkCiAqLwpjb25zdCBmb2N1c01haW5Db250ZW50ID0gKCkgPT4gewogIGNvbnN0IG1haW5Db250ZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21haW4tY29udGVudCcpCiAgaWYgKG1haW5Db250ZW50KSB7CiAgICAvLyBNYWtlIHRoZSBtYWluIGNvbnRlbnQgZm9jdXNhYmxlCiAgICBtYWluQ29udGVudC5zZXRBdHRyaWJ1dGUoJ3RhYmluZGV4JywgJy0xJykKICAgIG1haW5Db250ZW50LmZvY3VzKCkKICAgIC8vIFJlbW92ZSB0YWJpbmRleCBhZnRlciBmb2N1cyB0byBhdm9pZCB0YWIgc3RvcHMKICAgIHNldFRpbWVvdXQoKCkgPT4gewogICAgICBtYWluQ29udGVudC5yZW1vdmVBdHRyaWJ1dGUoJ3RhYmluZGV4JykKICAgIH0sIDEwMCkKICB9Cn0KCi8vIFdhdGNoIHJvdXRlIGNoYW5nZXMgdG8gdXBkYXRlIGxheW91dAp3YXRjaChyb3V0ZSwgdXBkYXRlTGF5b3V0LCB7IGltbWVkaWF0ZTogdHJ1ZSB9KQoKLy8gSW5pdGlhbGl6ZSBhdXRoIHN0b3JlIG9uIGFwcCBzdGFydApvbk1vdW50ZWQoYXN5bmMgKCkgPT4gewogIHRyeSB7CiAgICBhd2FpdCBhdXRoU3RvcmUuaW5pdGlhbGl6ZSgpCiAgfSBjYXRjaCAoZXJyb3IpIHsKICAgIGNvbnNvbGUuZXJyb3IoJ0ZhaWxlZCB0byBpbml0aWFsaXplIGF1dGggc3RvcmU6JywgZXJyb3IpCiAgfQp9KQo8L3NjcmlwdD4KCjxzdHlsZT4KI2FwcCB7CiAgbWluLWhlaWdodDogMTAwdmg7CiAgZGlzcGxheTogZmxleDsKICBmbGV4LWRpcmVjdGlvbjogY29sdW1uOwp9CgptYWluIHsKICBmbGV4OiAxOwp9CgovKiBTa2lwIE5hdmlnYXRpb24gTGlua3MgKi8KLnNraXAtbGlua3MgewogIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICB0b3A6IC0xMDBweDsKICBsZWZ0OiAwOwogIHdpZHRoOiAxMDAlOwogIHotaW5kZXg6IDk5OTk7Cn0KCi5za2lwLWxpbmsgewogIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICBsZWZ0OiA1MCU7CiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpOwogIGJhY2tncm91bmQ6IHZhcigtLXVjLXByaW1hcnkpOwogIGNvbG9yOiB3aGl0ZTsKICBwYWRkaW5nOiAwLjc1cmVtIDEuNXJlbTsKICBib3JkZXItcmFkaXVzOiAwIDAgOHB4IDhweDsKICBmb250LXdlaWdodDogNjAwOwogIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICB0cmFuc2l0aW9uOiB0b3AgMC4zcyBlYXNlOwogIGJveC1zaGFkb3c6IDAgNHB4IDhweCByZ2JhKDAsIDAsIDAsIDAuMik7Cn0KCi5za2lwLWxpbms6Zm9jdXMgewogIHRvcDogMDsKICBjb2xvcjogd2hpdGU7CiAgb3V0bGluZTogMnB4IHNvbGlkIHZhcigtLXVjLXNlY29uZGFyeSk7CiAgb3V0bGluZS1vZmZzZXQ6IDJweDsKfQoKLnNraXAtbGluazpob3Zlcjpmb2N1cyB7CiAgYmFja2dyb3VuZDogdmFyKC0tdWMtcHJpbWFyeS1kYXJrKTsKICBjb2xvcjogd2hpdGU7Cn0KPC9zdHlsZT4=">
+    <link rel="modulepreload" href="/assets/index-C874JYSJ.js">
+    <link rel="preload" href="/logo.svg" as="image">
+    
+    <!-- SEO and Social Meta Tags -->
+    <meta name="description" content="Unified Contractors - Park City's Premier Construction Company. Custom homes, design services, remodeling, water mitigation, and sump pump systems. Family-owned with 25+ years of experience.">
+    <meta name="keywords" content="construction, custom homes, remodeling, water damage restoration, sump pumps, Park City, Utah">
+    <meta name="author" content="Unified Contractors">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unifiedcontractors.com/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Unified Contractors | Park City Construction & Remodeling">
+    <meta property="og:description" content="Park City's Premier Construction Company with 25+ years of experience. Custom homes, design services, and remodeling.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unifiedcontractors.com/">
+    <meta property="og:image" content="https://unifiedcontractors.com/logo.svg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Unified Contractors">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unified Contractors | Park City Construction & Remodeling">
+    <meta name="twitter:description" content="Park City's Premier Construction Company with 25+ years of experience.">
+    <meta name="twitter:image" content="https://unifiedcontractors.com/logo.svg">
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Unified Contractors",
+      "description": "Park City's Premier Construction Company with 25+ years of experience",
+      "@id": "https://unifiedcontractors.com/",
+      "url": "https://unifiedcontractors.com/",
+      "logo": "https://unifiedcontractors.com/logo.svg",
+      "image": "https://unifiedcontractors.com/logo.svg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Park City",
+        "addressRegion": "UT",
+        "addressCountry": "US"
+      },
+      "serviceArea": {
+        "@type": "Place",
+        "name": "Park City, Utah and surrounding areas"
+      },
+      "services": [
+        "Custom Home Construction",
+        "Home Remodeling",
+        "Design Services",
+        "Water Damage Restoration",
+        "Sump Pump Systems"
+      ],
+      "areaServed": "Park City, Utah",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "50"
+      }
+    }
+    </script>
+    
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#05b3f2">
+    <meta name="msapplication-TileColor" content="#05b3f2">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/logo.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Unified Contractors">
+    
+    <title>Unified Contractors | Park City Construction & Remodeling</title>
+    
+    <!-- Critical CSS inline (will be injected by Vite) -->
+    <style>
+      /* Critical above-the-fold styles */
+      body { 
+        margin: 0; 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; 
+        background: #fbfbfb;
+        color: #252525;
+      }
+      #app { min-height: 100vh; }
+      
+      /* Loading spinner */
+      .app-loading {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 9999;
+      }
+      .spinner {
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #05b3f2;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .loading-text {
+        margin-top: 1rem;
+        color: #05b3f2;
+        font-weight: 600;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-wFKlhvRq.js"></script>
+    <link rel="modulepreload" crossorigin href="/chunks/vue-vendor-DAChQ3rz.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BX-OGx5n.css">
+  <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+  <body>
+    <!-- Loading indicator -->
+    <div id="app">
+      <div class="app-loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading Unified Contractors...</div>
+      </div>
+    </div>
+    
+    <!-- Performance monitoring script -->
+    <script>
+      // Early performance marking
+      performance.mark('app-start');
+      
+      // Connection-aware loading
+      if ('connection' in navigator) {
+        const connection = navigator.connection;
+        if (connection.saveData || connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+          document.documentElement.setAttribute('data-low-bandwidth', 'true');
+        }
+      }
+    </script>
+    
+    
+    <!-- Fallback for no-JS users -->
+    <noscript>
+      <style>
+        .app-loading { display: none; }
+      </style>
+      <div style="text-align: center; padding: 2rem; font-family: sans-serif;">
+        <h1>Unified Contractors</h1>
+        <p>JavaScript is required to run this application. Please enable JavaScript and refresh the page.</p>
+        <p>For immediate assistance, please call us directly or visit our physical location in Park City, Utah.</p>
+      </div>
+    </noscript>
+  </body>
+</html>
