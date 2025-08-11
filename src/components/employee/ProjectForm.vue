@@ -500,8 +500,17 @@ watch(() => props.visible, (newValue) => {
   }
 })
 
+watch(() => props.project, () => {
+  if (props.visible) {
+    populateForm()
+  }
+}, { deep: true })
+
 // Lifecycle
 onMounted(() => {
+  if (props.visible) {
+    populateForm()
+  }
   if (authStore.hasAnyRole(['admin', 'project_manager'])) {
     loadEmployees()
   }

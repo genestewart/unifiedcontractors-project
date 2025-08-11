@@ -24,7 +24,7 @@ export const createPrimeVueStubs = () => ({
   Dialog: {
     name: 'Dialog',
     template: `
-      <div v-if="visible" class="p-dialog-wrapper" :style="style">
+      <div v-if="visible !== false" class="p-dialog-wrapper" :style="style">
         <div class="p-dialog">
           <div v-if="header || $slots.header" class="p-dialog-header">
             <slot name="header">{{ header }}</slot>
@@ -38,8 +38,8 @@ export const createPrimeVueStubs = () => ({
         </div>
       </div>
     `,
-    props: ['visible', 'modal', 'header', 'style'],
-    emits: ['hide']
+    props: ['visible', 'modal', 'header', 'style', 'draggable', 'resizable'],
+    emits: ['hide', 'update:visible']
   },
 
   // Form Components
@@ -175,6 +175,41 @@ export const createPrimeVueStubs = () => ({
     `,
     props: ['modelValue', 'min', 'max', 'step', 'invalid', 'id', 'disabled'],
     emits: ['update:modelValue']
+  },
+
+  MultiSelect: {
+    name: 'MultiSelect',
+    template: `
+      <select
+        multiple
+        :value="modelValue || []"
+        @change="handleChange"
+        :class="{ 'p-invalid': invalid }"
+        :id="id"
+        :disabled="disabled || loading"
+      >
+        <option
+          v-for="option in options"
+          :key="option[optionValue] || option"
+          :value="option[optionValue] || option"
+          :selected="isSelected(option)"
+        >
+          {{ option[optionLabel] || option }}
+        </option>
+      </select>
+    `,
+    props: ['modelValue', 'options', 'optionLabel', 'optionValue', 'invalid', 'placeholder', 'id', 'disabled', 'loading'],
+    emits: ['update:modelValue'],
+    methods: {
+      handleChange(event) {
+        const values = Array.from(event.target.selectedOptions).map(option => option.value)
+        this.$emit('update:modelValue', values)
+      },
+      isSelected(option) {
+        const value = option[this.optionValue] || option
+        return (this.modelValue || []).includes(value)
+      }
+    }
   },
 
   // Button Components
