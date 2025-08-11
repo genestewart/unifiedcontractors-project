@@ -26,8 +26,10 @@ return new class extends Migration
             // Index for progress reporting
             $table->index(['status', 'progress_percentage'], 'idx_projects_status_progress');
             
-            // Full-text search index for project names and descriptions
-            $table->fullText(['name', 'description'], 'idx_projects_fulltext');
+            // Full-text search index for project names and descriptions (MySQL/PostgreSQL only)
+            if (DB::getDriverName() === 'mysql') {
+                $table->fullText(['name', 'description'], 'idx_projects_fulltext');
+            }
         });
 
         Schema::table('project_files', function (Blueprint $table) {
@@ -93,7 +95,9 @@ return new class extends Migration
             $table->dropIndex('idx_projects_client_status');
             $table->dropIndex('idx_projects_public_qr');
             $table->dropIndex('idx_projects_status_progress');
-            $table->dropIndex('idx_projects_fulltext');
+            if (DB::getDriverName() === 'mysql') {
+                $table->dropIndex('idx_projects_fulltext');
+            }
         });
 
         Schema::table('project_files', function (Blueprint $table) {

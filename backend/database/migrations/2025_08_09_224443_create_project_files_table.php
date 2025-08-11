@@ -40,8 +40,10 @@ return new class extends Migration
             $table->index('uploaded_at');
         });
         
-        // Add file size constraint using raw SQL (50MB limit)
-        DB::statement('ALTER TABLE project_files ADD CONSTRAINT chk_file_size CHECK (file_size > 0 AND file_size <= 52428800)');
+        // Add file size constraint using raw SQL (50MB limit, MySQL/PostgreSQL compatible)
+        if (DB::getDriverName() !== 'sqlite') {
+            DB::statement('ALTER TABLE project_files ADD CONSTRAINT chk_file_size CHECK (file_size > 0 AND file_size <= 52428800)');
+        }
     }
 
     /**

@@ -34,8 +34,10 @@ return new class extends Migration
             $table->index('reviewed_by');
         });
         
-        // Add rating constraint using raw SQL (1-5 stars)
-        DB::statement('ALTER TABLE client_feedback ADD CONSTRAINT chk_rating CHECK (rating IS NULL OR (rating >= 1 AND rating <= 5))');
+        // Add rating constraint using raw SQL (1-5 stars, MySQL/PostgreSQL compatible)
+        if (DB::getDriverName() !== 'sqlite') {
+            DB::statement('ALTER TABLE client_feedback ADD CONSTRAINT chk_rating CHECK (rating IS NULL OR (rating >= 1 AND rating <= 5))');
+        }
     }
 
     /**

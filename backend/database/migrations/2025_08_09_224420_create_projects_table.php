@@ -38,9 +38,11 @@ return new class extends Migration
             $table->index('is_public');
         });
         
-        // Add check constraints using raw SQL
-        DB::statement('ALTER TABLE projects ADD CONSTRAINT chk_progress_percentage CHECK (progress_percentage >= 0 AND progress_percentage <= 100)');
-        DB::statement('ALTER TABLE projects ADD CONSTRAINT chk_date_order CHECK (end_date IS NULL OR end_date >= start_date)');
+        // Add check constraints using raw SQL (MySQL/PostgreSQL compatible)
+        if (DB::getDriverName() !== 'sqlite') {
+            DB::statement('ALTER TABLE projects ADD CONSTRAINT chk_progress_percentage CHECK (progress_percentage >= 0 AND progress_percentage <= 100)');
+            DB::statement('ALTER TABLE projects ADD CONSTRAINT chk_date_order CHECK (end_date IS NULL OR end_date >= start_date)');
+        }
     }
 
     /**
