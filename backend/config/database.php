@@ -37,21 +37,19 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
-            // Performance optimizations for SQLite
-            'busy_timeout' => env('DB_BUSY_TIMEOUT', 5000),
+            // SQLite-specific configurations (handled by Laravel's SQLiteConnector)
+            'busy_timeout' => (int) env('DB_BUSY_TIMEOUT', 5000),
             'journal_mode' => env('DB_JOURNAL_MODE', 'WAL'),
             'synchronous' => env('DB_SYNCHRONOUS', 'NORMAL'),
-            'cache_size' => env('DB_CACHE_SIZE', -64000), // 64MB cache
-            'temp_store' => env('DB_TEMP_STORE', 'MEMORY'),
-            'mmap_size' => env('DB_MMAP_SIZE', 268435456), // 256MB
-            'options' => [
-                // Enable additional SQLite optimizations
-                'PRAGMA journal_mode=WAL',
-                'PRAGMA synchronous=NORMAL',
-                'PRAGMA cache_size=-64000',
-                'PRAGMA temp_store=MEMORY',
-                'PRAGMA mmap_size=268435456',
-            ],
+            // PDO options - only valid PDO attributes with integer keys and values
+            'options' => extension_loaded('pdo_sqlite') ? [
+                PDO::ATTR_CASE => PDO::CASE_NATURAL,
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_ORACLE_NULLS => PDO::NULL_NATURAL,
+                PDO::ATTR_STRINGIFY_FETCHES => false,
+                PDO::ATTR_EMULATE_PREPARES => false,
+                PDO::ATTR_TIMEOUT => (int) env('DB_TIMEOUT', 30),
+            ] : [],
         ],
 
         'mysql' => [
@@ -70,23 +68,14 @@ return [
             'strict' => true,
             'engine' => 'InnoDB',
             'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::ATTR_CASE => PDO::CASE_NATURAL,
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_ORACLE_NULLS => PDO::NULL_NATURAL,
+                PDO::ATTR_STRINGIFY_FETCHES => false,
+                PDO::ATTR_EMULATE_PREPARES => false,
+                PDO::ATTR_TIMEOUT => (int) env('DB_TIMEOUT', 30),
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-                PDO::ATTR_EMULATE_PREPARES => 0,
-                PDO::ATTR_STRINGIFY_FETCHES => 0,
-                PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => 1,
-                // Connection pooling and performance settings  
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET sql_mode='STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'",
             ]) : [],
-            // Performance optimizations (MySQL 8.0 compatible)
-            'modes' => [
-                'STRICT_TRANS_TABLES',
-                'ERROR_FOR_DIVISION_BY_ZERO', 
-                'NO_ENGINE_SUBSTITUTION',
-            ],
-            'pool' => [
-                'size' => env('DB_POOL_SIZE', 10),
-                'timeout' => env('DB_POOL_TIMEOUT', 5),
-            ],
         ],
 
         'mariadb' => [
@@ -113,7 +102,7 @@ return [
             'driver' => 'pgsql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
+            'port' => (int) env('DB_PORT', 5432),
             'database' => env('DB_DATABASE', 'laravel'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
@@ -122,13 +111,21 @@ return [
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => 'prefer',
+            'options' => extension_loaded('pdo_pgsql') ? [
+                PDO::ATTR_CASE => PDO::CASE_NATURAL,
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_ORACLE_NULLS => PDO::NULL_NATURAL,
+                PDO::ATTR_STRINGIFY_FETCHES => false,
+                PDO::ATTR_EMULATE_PREPARES => false,
+                PDO::ATTR_TIMEOUT => (int) env('DB_TIMEOUT', 30),
+            ] : [],
         ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1433'),
+            'port' => (int) env('DB_PORT', 1433),
             'database' => env('DB_DATABASE', 'laravel'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
@@ -137,6 +134,14 @@ return [
             'prefix_indexes' => true,
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+            'options' => extension_loaded('pdo_sqlsrv') ? [
+                PDO::ATTR_CASE => PDO::CASE_NATURAL,
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_ORACLE_NULLS => PDO::NULL_NATURAL,
+                PDO::ATTR_STRINGIFY_FETCHES => false,
+                PDO::ATTR_EMULATE_PREPARES => false,
+                PDO::ATTR_TIMEOUT => (int) env('DB_TIMEOUT', 30),
+            ] : [],
         ],
 
     ],
