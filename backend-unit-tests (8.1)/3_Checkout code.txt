@@ -1,0 +1,120 @@
+﻿2025-08-11T16:58:32.2415766Z ##[group]Run actions/checkout@v4
+2025-08-11T16:58:32.2416423Z with:
+2025-08-11T16:58:32.2416687Z   repository: genestewart/unifiedcontractors-project
+2025-08-11T16:58:32.2417239Z   token: ***
+2025-08-11T16:58:32.2417418Z   ssh-strict: true
+2025-08-11T16:58:32.2417591Z   ssh-user: git
+2025-08-11T16:58:32.2417792Z   persist-credentials: true
+2025-08-11T16:58:32.2417998Z   clean: true
+2025-08-11T16:58:32.2418186Z   sparse-checkout-cone-mode: true
+2025-08-11T16:58:32.2418405Z   fetch-depth: 1
+2025-08-11T16:58:32.2418630Z   fetch-tags: false
+2025-08-11T16:58:32.2418808Z   show-progress: true
+2025-08-11T16:58:32.2418985Z   lfs: false
+2025-08-11T16:58:32.2419150Z   submodules: false
+2025-08-11T16:58:32.2419332Z   set-safe-directory: true
+2025-08-11T16:58:32.2419842Z ##[endgroup]
+2025-08-11T16:58:32.3504856Z Syncing repository: genestewart/unifiedcontractors-project
+2025-08-11T16:58:32.3506209Z ##[group]Getting Git version info
+2025-08-11T16:58:32.3506698Z Working directory is '/home/runner/work/unifiedcontractors-project/unifiedcontractors-project'
+2025-08-11T16:58:32.3507423Z [command]/usr/bin/git version
+2025-08-11T16:58:32.3602693Z git version 2.50.1
+2025-08-11T16:58:32.3631771Z ##[endgroup]
+2025-08-11T16:58:32.3650505Z Temporarily overriding HOME='/home/runner/work/_temp/f060ed4c-0696-4567-8f54-5d23d295363f' before making global git config changes
+2025-08-11T16:58:32.3653542Z Adding repository directory to the temporary git global config as a safe directory
+2025-08-11T16:58:32.3668182Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/unifiedcontractors-project/unifiedcontractors-project
+2025-08-11T16:58:32.3711497Z Deleting the contents of '/home/runner/work/unifiedcontractors-project/unifiedcontractors-project'
+2025-08-11T16:58:32.3715906Z ##[group]Initializing the repository
+2025-08-11T16:58:32.3720943Z [command]/usr/bin/git init /home/runner/work/unifiedcontractors-project/unifiedcontractors-project
+2025-08-11T16:58:32.3805276Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-08-11T16:58:32.3806235Z hint: is subject to change. To configure the initial branch name to use in all
+2025-08-11T16:58:32.3806821Z hint: of your new repositories, which will suppress this warning, call:
+2025-08-11T16:58:32.3807171Z hint:
+2025-08-11T16:58:32.3807713Z hint: 	git config --global init.defaultBranch <name>
+2025-08-11T16:58:32.3808000Z hint:
+2025-08-11T16:58:32.3808279Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-08-11T16:58:32.3808758Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-08-11T16:58:32.3809111Z hint:
+2025-08-11T16:58:32.3809297Z hint: 	git branch -m <name>
+2025-08-11T16:58:32.3809507Z hint:
+2025-08-11T16:58:32.3810008Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-08-11T16:58:32.3811165Z Initialized empty Git repository in /home/runner/work/unifiedcontractors-project/unifiedcontractors-project/.git/
+2025-08-11T16:58:32.3824299Z [command]/usr/bin/git remote add origin https://github.com/genestewart/unifiedcontractors-project
+2025-08-11T16:58:32.3862696Z ##[endgroup]
+2025-08-11T16:58:32.3863316Z ##[group]Disabling automatic garbage collection
+2025-08-11T16:58:32.3868413Z [command]/usr/bin/git config --local gc.auto 0
+2025-08-11T16:58:32.3900276Z ##[endgroup]
+2025-08-11T16:58:32.3900874Z ##[group]Setting up auth
+2025-08-11T16:58:32.3908560Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-08-11T16:58:32.3941613Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-08-11T16:58:32.4263726Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-08-11T16:58:32.4295761Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-08-11T16:58:32.4535810Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-08-11T16:58:32.4572457Z ##[endgroup]
+2025-08-11T16:58:32.4573076Z ##[group]Fetching the repository
+2025-08-11T16:58:32.4581527Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bfce63de198f20eb1c5aec3c3503669208ff2681:refs/remotes/origin/main
+2025-08-11T16:58:34.5100178Z From https://github.com/genestewart/unifiedcontractors-project
+2025-08-11T16:58:34.5100991Z  * [new ref]           bfce63de198f20eb1c5aec3c3503669208ff2681 -> origin/main
+2025-08-11T16:58:34.5128105Z ##[endgroup]
+2025-08-11T16:58:34.5128476Z ##[group]Determining the checkout info
+2025-08-11T16:58:34.5130701Z ##[endgroup]
+2025-08-11T16:58:34.5136136Z [command]/usr/bin/git sparse-checkout disable
+2025-08-11T16:58:34.5175616Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-08-11T16:58:34.5202440Z ##[group]Checking out the ref
+2025-08-11T16:58:34.5207876Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-08-11T16:58:35.5540370Z Updating files:  51% (16169/31364)
+2025-08-11T16:58:35.5687163Z Updating files:  52% (16310/31364)
+2025-08-11T16:58:35.5882282Z Updating files:  53% (16623/31364)
+2025-08-11T16:58:35.6043495Z Updating files:  54% (16937/31364)
+2025-08-11T16:58:35.6180160Z Updating files:  55% (17251/31364)
+2025-08-11T16:58:35.6408272Z Updating files:  56% (17564/31364)
+2025-08-11T16:58:35.6557567Z Updating files:  57% (17878/31364)
+2025-08-11T16:58:35.6704954Z Updating files:  58% (18192/31364)
+2025-08-11T16:58:35.6838867Z Updating files:  59% (18505/31364)
+2025-08-11T16:58:35.6968345Z Updating files:  60% (18819/31364)
+2025-08-11T16:58:35.7089566Z Updating files:  61% (19133/31364)
+2025-08-11T16:58:35.7203667Z Updating files:  62% (19446/31364)
+2025-08-11T16:58:35.7356455Z Updating files:  63% (19760/31364)
+2025-08-11T16:58:35.7605088Z Updating files:  64% (20073/31364)
+2025-08-11T16:58:35.7742244Z Updating files:  65% (20387/31364)
+2025-08-11T16:58:35.7875341Z Updating files:  66% (20701/31364)
+2025-08-11T16:58:35.8012803Z Updating files:  67% (21014/31364)
+2025-08-11T16:58:35.8150835Z Updating files:  68% (21328/31364)
+2025-08-11T16:58:35.8283492Z Updating files:  69% (21642/31364)
+2025-08-11T16:58:35.8416060Z Updating files:  70% (21955/31364)
+2025-08-11T16:58:35.8549439Z Updating files:  71% (22269/31364)
+2025-08-11T16:58:35.8679982Z Updating files:  72% (22583/31364)
+2025-08-11T16:58:35.9030286Z Updating files:  73% (22896/31364)
+2025-08-11T16:58:35.9186812Z Updating files:  74% (23210/31364)
+2025-08-11T16:58:35.9410348Z Updating files:  75% (23523/31364)
+2025-08-11T16:58:35.9539560Z Updating files:  76% (23837/31364)
+2025-08-11T16:58:35.9742573Z Updating files:  77% (24151/31364)
+2025-08-11T16:58:35.9988639Z Updating files:  78% (24464/31364)
+2025-08-11T16:58:36.0146123Z Updating files:  79% (24778/31364)
+2025-08-11T16:58:36.0271922Z Updating files:  80% (25092/31364)
+2025-08-11T16:58:36.0445086Z Updating files:  81% (25405/31364)
+2025-08-11T16:58:36.0679827Z Updating files:  82% (25719/31364)
+2025-08-11T16:58:36.1600183Z Updating files:  83% (26033/31364)
+2025-08-11T16:58:36.1746360Z Updating files:  84% (26346/31364)
+2025-08-11T16:58:36.1950357Z Updating files:  85% (26660/31364)
+2025-08-11T16:58:36.2090620Z Updating files:  86% (26974/31364)
+2025-08-11T16:58:36.2192515Z Updating files:  87% (27287/31364)
+2025-08-11T16:58:36.2462306Z Updating files:  88% (27601/31364)
+2025-08-11T16:58:36.2634061Z Updating files:  89% (27914/31364)
+2025-08-11T16:58:36.2842874Z Updating files:  90% (28228/31364)
+2025-08-11T16:58:36.3105607Z Updating files:  91% (28542/31364)
+2025-08-11T16:58:36.3268600Z Updating files:  92% (28855/31364)
+2025-08-11T16:58:36.3653743Z Updating files:  93% (29169/31364)
+2025-08-11T16:58:36.3808935Z Updating files:  94% (29483/31364)
+2025-08-11T16:58:36.3945797Z Updating files:  95% (29796/31364)
+2025-08-11T16:58:36.4323478Z Updating files:  96% (30110/31364)
+2025-08-11T16:58:36.4462050Z Updating files:  97% (30424/31364)
+2025-08-11T16:58:36.4610588Z Updating files:  98% (30737/31364)
+2025-08-11T16:58:36.4801179Z Updating files:  99% (31051/31364)
+2025-08-11T16:58:36.4801951Z Updating files: 100% (31364/31364)
+2025-08-11T16:58:36.4802490Z Updating files: 100% (31364/31364), done.
+2025-08-11T16:58:36.5125380Z Switched to a new branch 'main'
+2025-08-11T16:58:36.5126975Z branch 'main' set up to track 'origin/main'.
+2025-08-11T16:58:36.5177919Z ##[endgroup]
+2025-08-11T16:58:36.5217012Z [command]/usr/bin/git log -1 --format=%H
+2025-08-11T16:58:36.5239072Z bfce63de198f20eb1c5aec3c3503669208ff2681

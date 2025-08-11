@@ -137,7 +137,7 @@ export const useAuthStore = defineStore('auth', {
         this.updateLastActivity()
 
         // Store tokens securely
-        this.storeTokens(response.data)
+        this.storeTokens(response.data, credentials.remember_me)
 
         return response
       } catch (error) {
@@ -370,12 +370,12 @@ export const useAuthStore = defineStore('auth', {
       }
     },
 
-    storeTokens(data) {
+    storeTokens(data, rememberMe = false) {
       localStorage.setItem('uc_access_token', data.access_token)
       localStorage.setItem('uc_token_expiry', this.tokenExpiry.toString())
       
       // Store user preferences
-      if (data.remember_me) {
+      if (rememberMe) {
         localStorage.setItem('uc_remember_user', data.employee.email)
       }
     },

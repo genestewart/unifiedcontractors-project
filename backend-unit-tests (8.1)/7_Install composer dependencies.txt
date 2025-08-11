@@ -1,0 +1,212 @@
+﻿2025-08-11T16:58:45.6697863Z ##[group]Run composer install --no-progress --prefer-dist --optimize-autoloader
+2025-08-11T16:58:45.6698403Z [36;1mcomposer install --no-progress --prefer-dist --optimize-autoloader[0m
+2025-08-11T16:58:45.6738504Z shell: /usr/bin/bash -e {0}
+2025-08-11T16:58:45.6738747Z env:
+2025-08-11T16:58:45.6738919Z   COMPOSER_PROCESS_TIMEOUT: 0
+2025-08-11T16:58:45.6739160Z   COMPOSER_NO_INTERACTION: 1
+2025-08-11T16:58:45.6739373Z   COMPOSER_NO_AUDIT: 1
+2025-08-11T16:58:45.6739565Z ##[endgroup]
+2025-08-11T16:58:45.8740081Z Installing dependencies from lock file (including require-dev)
+2025-08-11T16:58:45.8790442Z Verifying lock file contents can be installed on current platform.
+2025-08-11T16:58:45.9677903Z Your lock file does not contain a compatible set of packages. Please run composer update.
+2025-08-11T16:58:45.9678587Z 
+2025-08-11T16:58:45.9678718Z   Problem 1
+2025-08-11T16:58:45.9679339Z     - Root composer.json requires php ^8.2 but your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9680120Z   Problem 2
+2025-08-11T16:58:45.9680682Z     - endroid/qr-code is locked to version 6.0.9 and an update of this package was not requested.
+2025-08-11T16:58:45.9681961Z     - endroid/qr-code 6.0.9 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9682477Z   Problem 3
+2025-08-11T16:58:45.9683198Z     - laravel/framework is locked to version v12.22.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9684077Z     - laravel/framework v12.22.1 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9684817Z   Problem 4
+2025-08-11T16:58:45.9685362Z     - laravel/sanctum is locked to version v4.2.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9686333Z     - laravel/sanctum v4.2.0 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9687031Z   Problem 5
+2025-08-11T16:58:45.9687410Z     - nunomaduro/termwind is locked to version v2.3.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9688043Z     - nunomaduro/termwind v2.3.1 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9688471Z   Problem 6
+2025-08-11T16:58:45.9688802Z     - symfony/clock is locked to version v7.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9689378Z     - symfony/clock v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9689790Z   Problem 7
+2025-08-11T16:58:45.9690118Z     - symfony/console is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9690698Z     - symfony/console v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9691113Z   Problem 8
+2025-08-11T16:58:45.9691690Z     - symfony/css-selector is locked to version v7.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9692333Z     - symfony/css-selector v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9692760Z   Problem 9
+2025-08-11T16:58:45.9693120Z     - symfony/error-handler is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9693753Z     - symfony/error-handler v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9694191Z   Problem 10
+2025-08-11T16:58:45.9694570Z     - symfony/event-dispatcher is locked to version v7.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9695226Z     - symfony/event-dispatcher v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9695680Z   Problem 11
+2025-08-11T16:58:45.9696006Z     - symfony/finder is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9696588Z     - symfony/finder v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9697236Z   Problem 12
+2025-08-11T16:58:45.9697577Z     - symfony/http-foundation is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9698181Z     - symfony/http-foundation v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9698602Z   Problem 13
+2025-08-11T16:58:45.9698933Z     - symfony/http-kernel is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9699500Z     - symfony/http-kernel v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9699896Z   Problem 14
+2025-08-11T16:58:45.9700206Z     - symfony/mailer is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9700739Z     - symfony/mailer v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9701141Z   Problem 15
+2025-08-11T16:58:45.9701672Z     - symfony/mime is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9702211Z     - symfony/mime v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9702616Z   Problem 16
+2025-08-11T16:58:45.9703064Z     - symfony/process is locked to version v7.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9703616Z     - symfony/process v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9703993Z   Problem 17
+2025-08-11T16:58:45.9704302Z     - symfony/routing is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9704836Z     - symfony/routing v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9705218Z   Problem 18
+2025-08-11T16:58:45.9705520Z     - symfony/string is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9706059Z     - symfony/string v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9706435Z   Problem 19
+2025-08-11T16:58:45.9706762Z     - symfony/translation is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9707340Z     - symfony/translation v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9707740Z   Problem 20
+2025-08-11T16:58:45.9708035Z     - symfony/uid is locked to version v7.3.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9708549Z     - symfony/uid v7.3.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9708915Z   Problem 21
+2025-08-11T16:58:45.9709235Z     - symfony/var-dumper is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9709789Z     - symfony/var-dumper v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9710202Z   Problem 22
+2025-08-11T16:58:45.9710525Z     - laravel/pail is locked to version v1.2.3 and an update of this package was not requested.
+2025-08-11T16:58:45.9711055Z     - laravel/pail v1.2.3 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9711649Z   Problem 23
+2025-08-11T16:58:45.9711955Z     - laravel/pint is locked to version v1.24.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9712480Z     - laravel/pint v1.24.0 requires php ^8.2.0 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9712855Z   Problem 24
+2025-08-11T16:58:45.9713186Z     - nunomaduro/collision is locked to version v8.8.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9713774Z     - nunomaduro/collision v8.8.2 requires php ^8.2.0 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9714346Z   Problem 25
+2025-08-11T16:58:45.9714699Z     - phpunit/php-code-coverage is locked to version 11.0.10 and an update of this package was not requested.
+2025-08-11T16:58:45.9715318Z     - phpunit/php-code-coverage 11.0.10 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9715737Z   Problem 26
+2025-08-11T16:58:45.9716078Z     - phpunit/php-file-iterator is locked to version 5.1.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9716712Z     - phpunit/php-file-iterator 5.1.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9717137Z   Problem 27
+2025-08-11T16:58:45.9717461Z     - phpunit/php-invoker is locked to version 5.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9718033Z     - phpunit/php-invoker 5.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9718444Z   Problem 28
+2025-08-11T16:58:45.9718787Z     - phpunit/php-text-template is locked to version 4.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9719402Z     - phpunit/php-text-template 4.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9719938Z   Problem 29
+2025-08-11T16:58:45.9720262Z     - phpunit/php-timer is locked to version 7.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9720816Z     - phpunit/php-timer 7.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9721201Z   Problem 30
+2025-08-11T16:58:45.9721626Z     - phpunit/phpunit is locked to version 11.5.29 and an update of this package was not requested.
+2025-08-11T16:58:45.9722170Z     - phpunit/phpunit 11.5.29 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9722557Z   Problem 31
+2025-08-11T16:58:45.9722875Z     - sebastian/cli-parser is locked to version 3.0.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9723448Z     - sebastian/cli-parser 3.0.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9723847Z   Problem 32
+2025-08-11T16:58:45.9724160Z     - sebastian/code-unit is locked to version 3.0.3 and an update of this package was not requested.
+2025-08-11T16:58:45.9724727Z     - sebastian/code-unit 3.0.3 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9725117Z   Problem 33
+2025-08-11T16:58:45.9725494Z     - sebastian/code-unit-reverse-lookup is locked to version 4.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9726164Z     - sebastian/code-unit-reverse-lookup 4.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9726616Z   Problem 34
+2025-08-11T16:58:45.9726961Z     - sebastian/comparator is locked to version 6.3.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9727529Z     - sebastian/comparator 6.3.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9727930Z   Problem 35
+2025-08-11T16:58:45.9728241Z     - sebastian/complexity is locked to version 4.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9728808Z     - sebastian/complexity 4.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9729204Z   Problem 36
+2025-08-11T16:58:45.9729497Z     - sebastian/diff is locked to version 6.0.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9730020Z     - sebastian/diff 6.0.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9730389Z   Problem 37
+2025-08-11T16:58:45.9730721Z     - sebastian/environment is locked to version 7.2.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9731395Z     - sebastian/environment 7.2.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9732001Z   Problem 38
+2025-08-11T16:58:45.9732320Z     - sebastian/exporter is locked to version 6.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9732875Z     - sebastian/exporter 6.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9733276Z   Problem 39
+2025-08-11T16:58:45.9733601Z     - sebastian/global-state is locked to version 7.0.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9734183Z     - sebastian/global-state 7.0.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9734585Z   Problem 40
+2025-08-11T16:58:45.9734918Z     - sebastian/lines-of-code is locked to version 3.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9735533Z     - sebastian/lines-of-code 3.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9735944Z   Problem 41
+2025-08-11T16:58:45.9736304Z     - sebastian/object-enumerator is locked to version 6.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9736940Z     - sebastian/object-enumerator 6.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9737480Z   Problem 42
+2025-08-11T16:58:45.9737824Z     - sebastian/object-reflector is locked to version 4.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9738440Z     - sebastian/object-reflector 4.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9738858Z   Problem 43
+2025-08-11T16:58:45.9739201Z     - sebastian/recursion-context is locked to version 6.0.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9739821Z     - sebastian/recursion-context 6.0.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9740242Z   Problem 44
+2025-08-11T16:58:45.9740547Z     - sebastian/type is locked to version 5.1.3 and an update of this package was not requested.
+2025-08-11T16:58:45.9741069Z     - sebastian/type 5.1.3 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9741659Z   Problem 45
+2025-08-11T16:58:45.9741978Z     - sebastian/version is locked to version 5.0.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9742523Z     - sebastian/version 5.0.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9742918Z   Problem 46
+2025-08-11T16:58:45.9743210Z     - symfony/yaml is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9743726Z     - symfony/yaml v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9764575Z   Problem 47
+2025-08-11T16:58:45.9765253Z     - fruitcake/php-cors is locked to version v1.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9766230Z     - fruitcake/php-cors v1.3.0 requires symfony/http-foundation ^4.4|^5.4|^6|^7 -> satisfiable by symfony/http-foundation[v7.3.2].
+2025-08-11T16:58:45.9766983Z     - symfony/http-foundation v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9767381Z 
+2025-08-11T16:58:45.9850191Z ##[error]Your lock file does not contain a compatible set of packages. Please run composer update.
+
+  Problem 1
+    - Root composer.json requires php ^8.2 but your php version (8.1.33) does not satisfy that requirement.
+  Problem 2
+    - endroid/qr-code is locked to version 6.0.9 and an update of this package was not requested.
+    - endroid/qr-code 6.0.9 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 3
+    - laravel/framework is locked to version v12.22.1 and an update of this package was not requested.
+    - laravel/framework v12.22.1 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 4
+    - laravel/sanctum is locked to version v4.2.0 and an update of this package was not requested.
+    - laravel/sanctum v4.2.0 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 5
+    - nunomaduro/termwind is locked to version v2.3.1 and an update of this package was not requested.
+    - nunomaduro/termwind v2.3.1 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 6
+    - symfony/clock is locked to version v7.3.0 and an update of this package was not requested.
+    - symfony/clock v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 7
+    - symfony/console is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/console v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 8
+    - symfony/css-selector is locked to version v7.3.0 and an update of this package was not requested.
+    - symfony/css-selector v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 9
+    - symfony/error-handler is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/error-handler v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 10
+    - symfony/event-dispatcher is locked to version v7.3.0 and an update of this package was not requested.
+    - symfony/event-dispatcher v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 11
+    - symfony/finder is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/finder v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 12
+    - symfony/http-foundation is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/http-foundation v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 13
+    - symfony/http-kernel is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/http-kernel v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 14
+    - symfony/mailer is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/mailer v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 15
+    - symfony/mime is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/mime v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 16
+    - symfony/process is locked to version v7.3.0 and an update of this package was not requested.
+    - symfony/process v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 17
+    - symfony/routing is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/routing v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 18
+    - symfony/string is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/string v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 19
+    - symfony/
+2025-08-11T16:58:45.9910159Z ##[error]Process completed with exit code 2.

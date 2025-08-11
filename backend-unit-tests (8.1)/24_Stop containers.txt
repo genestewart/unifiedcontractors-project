@@ -1,0 +1,54 @@
+﻿2025-08-11T16:58:46.1834912Z Print service container logs: 5ee8d0f9ca2a4374988c926fad5959b5_mysql80_19e085
+2025-08-11T16:58:46.1839211Z ##[command]/usr/bin/docker logs --details 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:46.1977501Z  2025-08-11T16:58:19.051467Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+2025-08-11T16:58:46.1979462Z  2025-08-11T16:58:19.051567Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.43) initializing of server in progress as process 80
+2025-08-11T16:58:46.1980666Z  2025-08-11 16:58:18+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.43-1.el9 started.
+2025-08-11T16:58:46.1981763Z  2025-08-11T16:58:19.056667Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-08-11T16:58:46.1982601Z  2025-08-11T16:58:19.259239Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-08-11T16:58:46.1983479Z  2025-08-11T16:58:20.004993Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2025-08-11T16:58:46.1984554Z  2025-08-11T16:58:22.398918Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+2025-08-11T16:58:46.1985415Z  2025-08-11T16:58:22.399677Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.43) starting as process 124
+2025-08-11T16:58:46.1985960Z  2025-08-11T16:58:22.410818Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-08-11T16:58:46.1986429Z  2025-08-11T16:58:22.503345Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-08-11T16:58:46.1986931Z  2025-08-11T16:58:22.689789Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-08-11T16:58:46.1987643Z  2025-08-11T16:58:22.689826Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-08-11T16:58:46.1988658Z  2025-08-11T16:58:22.692066Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2025-08-11T16:58:46.1990078Z  2025-08-11T16:58:22.705140Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+2025-08-11T16:58:46.1991061Z  2025-08-11T16:58:22.705235Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.43'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+2025-08-11T16:58:46.1992059Z  Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+2025-08-11T16:58:46.1992565Z  Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+2025-08-11T16:58:46.1993065Z  Warning: Unable to load '/usr/share/zoneinfo/leapseconds' as time zone. Skipping it.
+2025-08-11T16:58:46.1993545Z  Warning: Unable to load '/usr/share/zoneinfo/tzdata.zi' as time zone. Skipping it.
+2025-08-11T16:58:46.1993993Z  Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+2025-08-11T16:58:46.1994456Z  Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
+2025-08-11T16:58:46.1995048Z  2025-08-11T16:58:24.386831Z 11 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.43).
+2025-08-11T16:58:46.1995779Z  2025-08-11T16:58:25.212651Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.43)  MySQL Community Server - GPL.
+2025-08-11T16:58:46.1996670Z  2025-08-11T16:58:25.580466Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+2025-08-11T16:58:46.1997477Z  2025-08-11T16:58:25.581230Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.43) starting as process 1
+2025-08-11T16:58:46.1998288Z  2025-08-11T16:58:25.586165Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-08-11T16:58:46.1998754Z  2025-08-11T16:58:25.675559Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-08-11T16:58:46.1999348Z  2025-08-11T16:58:25.831963Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-08-11T16:58:46.2000033Z  2025-08-11T16:58:25.831996Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-08-11T16:58:46.2001068Z  2025-08-11T16:58:25.833564Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2025-08-11T16:58:46.2002293Z  2025-08-11T16:58:25.847119Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2025-08-11T16:58:46.2003255Z  2025-08-11T16:58:25.847234Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.43'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+2025-08-11T16:58:46.2004015Z  2025-08-11 16:58:18+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+2025-08-11T16:58:46.2004486Z  2025-08-11 16:58:18+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.43-1.el9 started.
+2025-08-11T16:58:46.2004929Z  2025-08-11 16:58:19+00:00 [Note] [Entrypoint]: Initializing database files
+2025-08-11T16:58:46.2005299Z  2025-08-11 16:58:22+00:00 [Note] [Entrypoint]: Database files initialized
+2025-08-11T16:58:46.2005663Z  2025-08-11 16:58:22+00:00 [Note] [Entrypoint]: Starting temporary server
+2025-08-11T16:58:46.2006014Z  2025-08-11 16:58:22+00:00 [Note] [Entrypoint]: Temporary server started.
+2025-08-11T16:58:46.2006380Z  '/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+2025-08-11T16:58:46.2006788Z  2025-08-11 16:58:24+00:00 [Note] [Entrypoint]: Creating database unified_contractors_test
+2025-08-11T16:58:46.2007107Z  
+2025-08-11T16:58:46.2007328Z  2025-08-11 16:58:24+00:00 [Note] [Entrypoint]: Stopping temporary server
+2025-08-11T16:58:46.2007685Z  2025-08-11 16:58:25+00:00 [Note] [Entrypoint]: Temporary server stopped
+2025-08-11T16:58:46.2007967Z  
+2025-08-11T16:58:46.2008230Z  2025-08-11 16:58:25+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+2025-08-11T16:58:46.2008554Z  
+2025-08-11T16:58:46.2014335Z Stop and remove container: 5ee8d0f9ca2a4374988c926fad5959b5_mysql80_19e085
+2025-08-11T16:58:46.2019653Z ##[command]/usr/bin/docker rm --force 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:48.3279830Z 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:48.3308640Z Remove container network: github_network_a2f5c725fb43482b8360efa865617b93
+2025-08-11T16:58:48.3313102Z ##[command]/usr/bin/docker network rm github_network_a2f5c725fb43482b8360efa865617b93
+2025-08-11T16:58:48.4473107Z github_network_a2f5c725fb43482b8360efa865617b93

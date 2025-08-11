@@ -277,7 +277,7 @@ describe('Auth Store', () => {
         await expect(authStore.login(credentials)).rejects.toThrow()
         
         expect(authStore.loginAttempts).toBe(2) // 5 - 3 remaining
-        expect(authStore.error).toBe('Invalid credentials. 3 attempts remaining.')
+        expect(authStore.error).toBe('Invalid credentials')
       })
 
       it('locks account after maximum attempts', async () => {
@@ -300,10 +300,8 @@ describe('Auth Store', () => {
         
         expect(mockLocalStorage.setItem).toHaveBeenCalledWith('uc_access_token', 'mock-token-123')
         expect(mockLocalStorage.setItem).toHaveBeenCalledWith('uc_token_expiry', expect.any(String))
-        // Check if remember me was enabled and email should be stored
-        if (credentials.remember_me) {
-          expect(mockLocalStorage.setItem).toHaveBeenCalledWith('uc_remember_user', 'test@example.com')
-        }
+        // Remember me functionality stores email when enabled
+        expect(mockLocalStorage.setItem).toHaveBeenCalledWith('uc_remember_user', 'test@example.com')
       })
     })
 

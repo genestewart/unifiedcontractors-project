@@ -1,0 +1,96 @@
+﻿2025-08-11T16:58:04.8884039Z ##[group]Checking docker version
+2025-08-11T16:58:04.8898945Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2025-08-11T16:58:04.9681080Z '1.48'
+2025-08-11T16:58:04.9695741Z Docker daemon API version: '1.48'
+2025-08-11T16:58:04.9697286Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2025-08-11T16:58:04.9869088Z '1.48'
+2025-08-11T16:58:04.9884921Z Docker client API version: '1.48'
+2025-08-11T16:58:04.9892195Z ##[endgroup]
+2025-08-11T16:58:04.9896447Z ##[group]Clean up resources from previous jobs
+2025-08-11T16:58:04.9902923Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=7fa03d"
+2025-08-11T16:58:05.0072991Z ##[command]/usr/bin/docker network prune --force --filter "label=7fa03d"
+2025-08-11T16:58:05.0218533Z ##[endgroup]
+2025-08-11T16:58:05.0219478Z ##[group]Create local container network
+2025-08-11T16:58:05.0231165Z ##[command]/usr/bin/docker network create --label 7fa03d github_network_a2f5c725fb43482b8360efa865617b93
+2025-08-11T16:58:05.0814786Z 821b8b3259260f2a167ad0634b26cbfd2f0afb6c451696a72a9909dd4bf4aea5
+2025-08-11T16:58:05.0839459Z ##[endgroup]
+2025-08-11T16:58:05.0865935Z ##[group]Starting mysql service container
+2025-08-11T16:58:05.0889097Z ##[command]/usr/bin/docker pull mysql:8.0
+2025-08-11T16:58:05.5082475Z 8.0: Pulling from library/mysql
+2025-08-11T16:58:05.6158790Z 10aec8a104c7: Pulling fs layer
+2025-08-11T16:58:05.6169603Z eb4c833f6ac8: Pulling fs layer
+2025-08-11T16:58:05.6172526Z ac1d09b99a58: Pulling fs layer
+2025-08-11T16:58:05.6174093Z d90a2df7273a: Pulling fs layer
+2025-08-11T16:58:05.6175581Z 29def2d20dd4: Pulling fs layer
+2025-08-11T16:58:05.6177044Z 21c02f1ef6a5: Pulling fs layer
+2025-08-11T16:58:05.6178489Z 227c621e92bf: Pulling fs layer
+2025-08-11T16:58:05.6179956Z 0dd51a1cf370: Pulling fs layer
+2025-08-11T16:58:05.6181677Z c17e5ae8443e: Pulling fs layer
+2025-08-11T16:58:05.6183151Z 6ae00a88a906: Pulling fs layer
+2025-08-11T16:58:05.6184592Z 13ecfab825f5: Pulling fs layer
+2025-08-11T16:58:05.6185984Z d90a2df7273a: Waiting
+2025-08-11T16:58:05.6187261Z 29def2d20dd4: Waiting
+2025-08-11T16:58:05.6188513Z 21c02f1ef6a5: Waiting
+2025-08-11T16:58:05.6189762Z 227c621e92bf: Waiting
+2025-08-11T16:58:05.6191005Z 0dd51a1cf370: Waiting
+2025-08-11T16:58:05.6192399Z c17e5ae8443e: Waiting
+2025-08-11T16:58:05.6193639Z 6ae00a88a906: Waiting
+2025-08-11T16:58:05.6194871Z 13ecfab825f5: Waiting
+2025-08-11T16:58:05.7383598Z eb4c833f6ac8: Verifying Checksum
+2025-08-11T16:58:05.7386186Z eb4c833f6ac8: Download complete
+2025-08-11T16:58:05.7689696Z ac1d09b99a58: Verifying Checksum
+2025-08-11T16:58:05.7691978Z ac1d09b99a58: Download complete
+2025-08-11T16:58:05.8922594Z 29def2d20dd4: Download complete
+2025-08-11T16:58:05.9589890Z d90a2df7273a: Verifying Checksum
+2025-08-11T16:58:05.9591953Z d90a2df7273a: Download complete
+2025-08-11T16:58:05.9994536Z 21c02f1ef6a5: Download complete
+2025-08-11T16:58:06.1098155Z 0dd51a1cf370: Verifying Checksum
+2025-08-11T16:58:06.1100997Z 0dd51a1cf370: Download complete
+2025-08-11T16:58:06.5825308Z 227c621e92bf: Verifying Checksum
+2025-08-11T16:58:06.5826013Z 227c621e92bf: Download complete
+2025-08-11T16:58:06.7009689Z 6ae00a88a906: Verifying Checksum
+2025-08-11T16:58:06.7010828Z 6ae00a88a906: Download complete
+2025-08-11T16:58:06.8533442Z 13ecfab825f5: Verifying Checksum
+2025-08-11T16:58:06.8534009Z 13ecfab825f5: Download complete
+2025-08-11T16:58:07.0138053Z 10aec8a104c7: Verifying Checksum
+2025-08-11T16:58:07.0138738Z 10aec8a104c7: Download complete
+2025-08-11T16:58:08.2689744Z 10aec8a104c7: Pull complete
+2025-08-11T16:58:10.0136692Z c17e5ae8443e: Verifying Checksum
+2025-08-11T16:58:10.0137223Z c17e5ae8443e: Download complete
+2025-08-11T16:58:10.1217401Z eb4c833f6ac8: Pull complete
+2025-08-11T16:58:10.1660127Z ac1d09b99a58: Pull complete
+2025-08-11T16:58:10.3871634Z d90a2df7273a: Pull complete
+2025-08-11T16:58:10.4085629Z 29def2d20dd4: Pull complete
+2025-08-11T16:58:10.4211750Z 21c02f1ef6a5: Pull complete
+2025-08-11T16:58:11.1602564Z 227c621e92bf: Pull complete
+2025-08-11T16:58:11.1757238Z 0dd51a1cf370: Pull complete
+2025-08-11T16:58:18.4590004Z c17e5ae8443e: Pull complete
+2025-08-11T16:58:18.4725212Z 6ae00a88a906: Pull complete
+2025-08-11T16:58:18.4827881Z 13ecfab825f5: Pull complete
+2025-08-11T16:58:18.4884556Z Digest: sha256:f483084b37081f1574c8d4e4485cd9028abcb022973c44c079a520eb01801d55
+2025-08-11T16:58:18.4901498Z Status: Downloaded newer image for mysql:8.0
+2025-08-11T16:58:18.4915447Z docker.io/library/mysql:8.0
+2025-08-11T16:58:18.4976141Z ##[command]/usr/bin/docker create --name 5ee8d0f9ca2a4374988c926fad5959b5_mysql80_19e085 --label 7fa03d --network github_network_a2f5c725fb43482b8360efa865617b93 --network-alias mysql -p 3306:3306 --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3 -e "MYSQL_ROOT_PASSWORD=password" -e "MYSQL_DATABASE=unified_contractors_test" -e GITHUB_ACTIONS=true -e CI=true mysql:8.0
+2025-08-11T16:58:18.5309002Z 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:18.5334402Z ##[command]/usr/bin/docker start 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:18.7513615Z 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:18.7536874Z ##[command]/usr/bin/docker ps --all --filter id=1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2025-08-11T16:58:18.7669714Z 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16 Up Less than a second (health: starting)
+2025-08-11T16:58:18.7692818Z ##[command]/usr/bin/docker port 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:18.7829517Z 3306/tcp -> 0.0.0.0:3306
+2025-08-11T16:58:18.7830243Z 3306/tcp -> [::]:3306
+2025-08-11T16:58:18.7891120Z ##[endgroup]
+2025-08-11T16:58:18.7902735Z ##[group]Waiting for all services to be ready
+2025-08-11T16:58:18.7919792Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:18.8059780Z starting
+2025-08-11T16:58:18.8089195Z mysql service is starting, waiting 2 seconds before checking again.
+2025-08-11T16:58:20.8086362Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:20.8223099Z starting
+2025-08-11T16:58:20.8236020Z mysql service is starting, waiting 3 seconds before checking again.
+2025-08-11T16:58:24.7893690Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:24.8019837Z starting
+2025-08-11T16:58:24.8040525Z mysql service is starting, waiting 7 seconds before checking again.
+2025-08-11T16:58:32.1947343Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:32.2075354Z healthy
+2025-08-11T16:58:32.2096681Z mysql service is healthy.
+2025-08-11T16:58:32.2097495Z ##[endgroup]

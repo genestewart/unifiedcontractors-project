@@ -1,0 +1,226 @@
+﻿2025-08-11T16:58:03.2422941Z Current runner version: '2.327.1'
+2025-08-11T16:58:03.2457445Z ##[group]Runner Image Provisioner
+2025-08-11T16:58:03.2458826Z Hosted Compute Agent
+2025-08-11T16:58:03.2459780Z Version: 20250711.363
+2025-08-11T16:58:03.2460842Z Commit: 6785254374ce925a23743850c1cb91912ce5c14c
+2025-08-11T16:58:03.2462293Z Build Date: 2025-07-11T20:04:25Z
+2025-08-11T16:58:03.2463399Z ##[endgroup]
+2025-08-11T16:58:03.2464359Z ##[group]Operating System
+2025-08-11T16:58:03.2465382Z Ubuntu
+2025-08-11T16:58:03.2466272Z 24.04.2
+2025-08-11T16:58:03.2467011Z LTS
+2025-08-11T16:58:03.2467949Z ##[endgroup]
+2025-08-11T16:58:03.2468826Z ##[group]Runner Image
+2025-08-11T16:58:03.2469885Z Image: ubuntu-24.04
+2025-08-11T16:58:03.2470668Z Version: 20250804.2.0
+2025-08-11T16:58:03.2472844Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250804.2/images/ubuntu/Ubuntu2404-Readme.md
+2025-08-11T16:58:03.2475551Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250804.2
+2025-08-11T16:58:03.2477444Z ##[endgroup]
+2025-08-11T16:58:03.2479481Z ##[group]GITHUB_TOKEN Permissions
+2025-08-11T16:58:03.2482565Z Contents: read
+2025-08-11T16:58:03.2483463Z Metadata: read
+2025-08-11T16:58:03.2484345Z Packages: read
+2025-08-11T16:58:03.2485415Z ##[endgroup]
+2025-08-11T16:58:03.2488295Z Secret source: Actions
+2025-08-11T16:58:03.2489904Z Prepare workflow directory
+2025-08-11T16:58:03.2824050Z Prepare all required actions
+2025-08-11T16:58:03.2864646Z Getting action download info
+2025-08-11T16:58:03.6690581Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-08-11T16:58:03.6692141Z Version: 4.3.0
+2025-08-11T16:58:03.6693245Z Digest: sha256:62afad8896fc57a531e3d48e3f489c729474ff63a4c1791408cea7b32a62ef32
+2025-08-11T16:58:03.6694467Z Source commit SHA: 08eba0b27e820071cde6df949e0beb9ba4906955
+2025-08-11T16:58:03.6695365Z ##[endgroup]
+2025-08-11T16:58:03.9831136Z ##[group]Download immutable action package 'actions/setup-node@v4'
+2025-08-11T16:58:03.9832388Z Version: 4.4.0
+2025-08-11T16:58:03.9833194Z Digest: sha256:9427cefe82346e992fb5b949e3569b39d537ae41aa3086483b14eceebfc16bc1
+2025-08-11T16:58:03.9834161Z Source commit SHA: 49933ea5288caeca8642d1e84afbd3f7d6820020
+2025-08-11T16:58:03.9834986Z ##[endgroup]
+2025-08-11T16:58:04.0729940Z Download action repository 'codecov/codecov-action@v3' (SHA:ab904c41d6ece82784817410c45d8b8c02684457)
+2025-08-11T16:58:04.6868046Z Complete job name: frontend-unit-tests (18)
+2025-08-11T16:58:04.7657828Z ##[group]Run actions/checkout@v4
+2025-08-11T16:58:04.7659137Z with:
+2025-08-11T16:58:04.7660033Z   repository: genestewart/unifiedcontractors-project
+2025-08-11T16:58:04.7661456Z   token: ***
+2025-08-11T16:58:04.7662363Z   ssh-strict: true
+2025-08-11T16:58:04.7663128Z   ssh-user: git
+2025-08-11T16:58:04.7663905Z   persist-credentials: true
+2025-08-11T16:58:04.7664781Z   clean: true
+2025-08-11T16:58:04.7665568Z   sparse-checkout-cone-mode: true
+2025-08-11T16:58:04.7666512Z   fetch-depth: 1
+2025-08-11T16:58:04.7667259Z   fetch-tags: false
+2025-08-11T16:58:04.7668041Z   show-progress: true
+2025-08-11T16:58:04.7668865Z   lfs: false
+2025-08-11T16:58:04.7669577Z   submodules: false
+2025-08-11T16:58:04.7670359Z   set-safe-directory: true
+2025-08-11T16:58:04.7671481Z ##[endgroup]
+2025-08-11T16:58:04.8827166Z Syncing repository: genestewart/unifiedcontractors-project
+2025-08-11T16:58:04.8830008Z ##[group]Getting Git version info
+2025-08-11T16:58:04.8832170Z Working directory is '/home/runner/work/unifiedcontractors-project/unifiedcontractors-project'
+2025-08-11T16:58:04.8834605Z [command]/usr/bin/git version
+2025-08-11T16:58:04.8850491Z git version 2.50.1
+2025-08-11T16:58:04.8877600Z ##[endgroup]
+2025-08-11T16:58:04.8893164Z Temporarily overriding HOME='/home/runner/work/_temp/f9aecb50-186b-462b-bdc0-37b790019d52' before making global git config changes
+2025-08-11T16:58:04.8899978Z Adding repository directory to the temporary git global config as a safe directory
+2025-08-11T16:58:04.8906437Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/unifiedcontractors-project/unifiedcontractors-project
+2025-08-11T16:58:04.8940911Z Deleting the contents of '/home/runner/work/unifiedcontractors-project/unifiedcontractors-project'
+2025-08-11T16:58:04.8945104Z ##[group]Initializing the repository
+2025-08-11T16:58:04.8948555Z [command]/usr/bin/git init /home/runner/work/unifiedcontractors-project/unifiedcontractors-project
+2025-08-11T16:58:04.9011012Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-08-11T16:58:04.9014393Z hint: is subject to change. To configure the initial branch name to use in all
+2025-08-11T16:58:04.9016401Z hint: of your new repositories, which will suppress this warning, call:
+2025-08-11T16:58:04.9017719Z hint:
+2025-08-11T16:58:04.9018633Z hint: 	git config --global init.defaultBranch <name>
+2025-08-11T16:58:04.9020452Z hint:
+2025-08-11T16:58:04.9021504Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-08-11T16:58:04.9023596Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-08-11T16:58:04.9025170Z hint:
+2025-08-11T16:58:04.9026288Z hint: 	git branch -m <name>
+2025-08-11T16:58:04.9027316Z hint:
+2025-08-11T16:58:04.9028450Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-08-11T16:58:04.9030894Z Initialized empty Git repository in /home/runner/work/unifiedcontractors-project/unifiedcontractors-project/.git/
+2025-08-11T16:58:04.9036882Z [command]/usr/bin/git remote add origin https://github.com/genestewart/unifiedcontractors-project
+2025-08-11T16:58:04.9064121Z ##[endgroup]
+2025-08-11T16:58:04.9065674Z ##[group]Disabling automatic garbage collection
+2025-08-11T16:58:04.9067531Z [command]/usr/bin/git config --local gc.auto 0
+2025-08-11T16:58:04.9106585Z ##[endgroup]
+2025-08-11T16:58:04.9109378Z ##[group]Setting up auth
+2025-08-11T16:58:04.9112657Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-08-11T16:58:04.9150135Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-08-11T16:58:05.0234973Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-08-11T16:58:05.0267427Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-08-11T16:58:05.0488460Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-08-11T16:58:05.0524371Z ##[endgroup]
+2025-08-11T16:58:05.0526143Z ##[group]Fetching the repository
+2025-08-11T16:58:05.0532903Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bfce63de198f20eb1c5aec3c3503669208ff2681:refs/remotes/origin/main
+2025-08-11T16:58:07.2084187Z From https://github.com/genestewart/unifiedcontractors-project
+2025-08-11T16:58:07.2085757Z  * [new ref]           bfce63de198f20eb1c5aec3c3503669208ff2681 -> origin/main
+2025-08-11T16:58:07.2115018Z ##[endgroup]
+2025-08-11T16:58:07.2115675Z ##[group]Determining the checkout info
+2025-08-11T16:58:07.2117469Z ##[endgroup]
+2025-08-11T16:58:07.2122458Z [command]/usr/bin/git sparse-checkout disable
+2025-08-11T16:58:07.2159090Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-08-11T16:58:07.2186288Z ##[group]Checking out the ref
+2025-08-11T16:58:07.2189816Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-08-11T16:58:08.2517182Z Updating files:  52% (16486/31364)
+2025-08-11T16:58:08.2709385Z Updating files:  53% (16623/31364)
+2025-08-11T16:58:08.2869187Z Updating files:  54% (16937/31364)
+2025-08-11T16:58:08.3006153Z Updating files:  55% (17251/31364)
+2025-08-11T16:58:08.3230253Z Updating files:  56% (17564/31364)
+2025-08-11T16:58:08.3378621Z Updating files:  57% (17878/31364)
+2025-08-11T16:58:08.3522168Z Updating files:  58% (18192/31364)
+2025-08-11T16:58:08.3654124Z Updating files:  59% (18505/31364)
+2025-08-11T16:58:08.3782469Z Updating files:  60% (18819/31364)
+2025-08-11T16:58:08.3903240Z Updating files:  61% (19133/31364)
+2025-08-11T16:58:08.4016046Z Updating files:  62% (19446/31364)
+2025-08-11T16:58:08.4164733Z Updating files:  63% (19760/31364)
+2025-08-11T16:58:08.4401687Z Updating files:  64% (20073/31364)
+2025-08-11T16:58:08.4539223Z Updating files:  65% (20387/31364)
+2025-08-11T16:58:08.4669811Z Updating files:  66% (20701/31364)
+2025-08-11T16:58:08.4804099Z Updating files:  67% (21014/31364)
+2025-08-11T16:58:08.4942763Z Updating files:  68% (21328/31364)
+2025-08-11T16:58:08.5073173Z Updating files:  69% (21642/31364)
+2025-08-11T16:58:08.5203651Z Updating files:  70% (21955/31364)
+2025-08-11T16:58:08.5333851Z Updating files:  71% (22269/31364)
+2025-08-11T16:58:08.5490110Z Updating files:  72% (22583/31364)
+2025-08-11T16:58:08.5836007Z Updating files:  73% (22896/31364)
+2025-08-11T16:58:08.5991012Z Updating files:  74% (23210/31364)
+2025-08-11T16:58:08.6213615Z Updating files:  75% (23523/31364)
+2025-08-11T16:58:08.6349101Z Updating files:  76% (23837/31364)
+2025-08-11T16:58:08.6555628Z Updating files:  77% (24151/31364)
+2025-08-11T16:58:08.6797322Z Updating files:  78% (24464/31364)
+2025-08-11T16:58:08.6951700Z Updating files:  79% (24778/31364)
+2025-08-11T16:58:08.7074562Z Updating files:  80% (25092/31364)
+2025-08-11T16:58:08.7240625Z Updating files:  81% (25405/31364)
+2025-08-11T16:58:08.7476252Z Updating files:  82% (25719/31364)
+2025-08-11T16:58:08.8337711Z Updating files:  83% (26033/31364)
+2025-08-11T16:58:08.8482560Z Updating files:  84% (26346/31364)
+2025-08-11T16:58:08.8686048Z Updating files:  85% (26660/31364)
+2025-08-11T16:58:08.8826407Z Updating files:  86% (26974/31364)
+2025-08-11T16:58:08.8927613Z Updating files:  87% (27287/31364)
+2025-08-11T16:58:08.9194847Z Updating files:  88% (27601/31364)
+2025-08-11T16:58:08.9363334Z Updating files:  89% (27914/31364)
+2025-08-11T16:58:08.9569289Z Updating files:  90% (28228/31364)
+2025-08-11T16:58:08.9827918Z Updating files:  91% (28542/31364)
+2025-08-11T16:58:08.9995570Z Updating files:  92% (28855/31364)
+2025-08-11T16:58:09.0375721Z Updating files:  93% (29169/31364)
+2025-08-11T16:58:09.0528861Z Updating files:  94% (29483/31364)
+2025-08-11T16:58:09.0665426Z Updating files:  95% (29796/31364)
+2025-08-11T16:58:09.1030913Z Updating files:  96% (30110/31364)
+2025-08-11T16:58:09.1169124Z Updating files:  97% (30424/31364)
+2025-08-11T16:58:09.1315440Z Updating files:  98% (30737/31364)
+2025-08-11T16:58:09.1501519Z Updating files:  99% (31051/31364)
+2025-08-11T16:58:09.1502336Z Updating files: 100% (31364/31364)
+2025-08-11T16:58:09.1502845Z Updating files: 100% (31364/31364), done.
+2025-08-11T16:58:09.1822699Z Switched to a new branch 'main'
+2025-08-11T16:58:09.1824147Z branch 'main' set up to track 'origin/main'.
+2025-08-11T16:58:09.1874525Z ##[endgroup]
+2025-08-11T16:58:09.1913986Z [command]/usr/bin/git log -1 --format=%H
+2025-08-11T16:58:09.1935471Z bfce63de198f20eb1c5aec3c3503669208ff2681
+2025-08-11T16:58:09.2163627Z ##[group]Run actions/setup-node@v4
+2025-08-11T16:58:09.2163910Z with:
+2025-08-11T16:58:09.2164093Z   node-version: 18
+2025-08-11T16:58:09.2164285Z   cache: npm
+2025-08-11T16:58:09.2164458Z   always-auth: false
+2025-08-11T16:58:09.2164664Z   check-latest: false
+2025-08-11T16:58:09.2164990Z   token: ***
+2025-08-11T16:58:09.2165177Z ##[endgroup]
+2025-08-11T16:58:09.3911300Z Found in cache @ /opt/hostedtoolcache/node/18.20.8/x64
+2025-08-11T16:58:09.3917959Z ##[group]Environment details
+2025-08-11T16:58:11.5545441Z node: v18.20.8
+2025-08-11T16:58:11.5545852Z npm: 10.8.2
+2025-08-11T16:58:11.5546144Z yarn: 1.22.22
+2025-08-11T16:58:11.5547479Z ##[endgroup]
+2025-08-11T16:58:11.5568852Z [command]/opt/hostedtoolcache/node/18.20.8/x64/bin/npm config get cache
+2025-08-11T16:58:11.8074857Z /home/runner/.npm
+2025-08-11T16:58:11.9911447Z npm cache is not found
+2025-08-11T16:58:12.0033641Z ##[group]Run npm ci
+2025-08-11T16:58:12.0033909Z [36;1mnpm ci[0m
+2025-08-11T16:58:12.0109964Z shell: /usr/bin/bash -e {0}
+2025-08-11T16:58:12.0110220Z ##[endgroup]
+2025-08-11T16:58:15.4356985Z npm warn EBADENGINE Unsupported engine {
+2025-08-11T16:58:15.4357482Z npm warn EBADENGINE   package: 'happy-dom@18.0.1',
+2025-08-11T16:58:15.4357906Z npm warn EBADENGINE   required: { node: '>=20.0.0' },
+2025-08-11T16:58:15.4358500Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+2025-08-11T16:58:15.4359123Z npm warn EBADENGINE }
+2025-08-11T16:58:15.4446903Z npm error code EUSAGE
+2025-08-11T16:58:15.4447410Z npm error
+2025-08-11T16:58:15.4449050Z npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+2025-08-11T16:58:15.4449960Z npm error
+2025-08-11T16:58:15.4450357Z npm error Missing: @pinia/testing@0.1.7 from lock file
+2025-08-11T16:58:15.4450972Z npm error Missing: @playwright/test@1.54.2 from lock file
+2025-08-11T16:58:15.4451478Z npm error Missing: playwright@1.54.2 from lock file
+2025-08-11T16:58:15.4452181Z npm error Missing: fsevents@2.3.2 from lock file
+2025-08-11T16:58:15.4452717Z npm error Missing: playwright-core@1.54.2 from lock file
+2025-08-11T16:58:15.4453076Z npm error
+2025-08-11T16:58:15.4453364Z npm error Clean install a project
+2025-08-11T16:58:15.4453657Z npm error
+2025-08-11T16:58:15.4453865Z npm error Usage:
+2025-08-11T16:58:15.4454107Z npm error npm ci
+2025-08-11T16:58:15.4454288Z npm error
+2025-08-11T16:58:15.4454473Z npm error Options:
+2025-08-11T16:58:15.4454908Z npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+2025-08-11T16:58:15.4455516Z npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+2025-08-11T16:58:15.4456124Z npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+2025-08-11T16:58:15.4456729Z npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+2025-08-11T16:58:15.4457201Z npm error [--no-bin-links] [--no-fund] [--dry-run]
+2025-08-11T16:58:15.4457722Z npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+2025-08-11T16:58:15.4458257Z npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+2025-08-11T16:58:15.4458599Z npm error
+2025-08-11T16:58:15.4458940Z npm error aliases: clean-install, ic, install-clean, isntall-clean
+2025-08-11T16:58:15.4459254Z npm error
+2025-08-11T16:58:15.4459494Z npm error Run "npm help ci" for more info
+2025-08-11T16:58:15.4460322Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-08-11T16_58_12_085Z-debug-0.log
+2025-08-11T16:58:15.4620704Z ##[error]Process completed with exit code 1.
+2025-08-11T16:58:15.4721744Z Post job cleanup.
+2025-08-11T16:58:15.5654683Z [command]/usr/bin/git version
+2025-08-11T16:58:15.5690205Z git version 2.50.1
+2025-08-11T16:58:15.5734607Z Temporarily overriding HOME='/home/runner/work/_temp/43655815-5558-45f2-98de-7a0efe38ed89' before making global git config changes
+2025-08-11T16:58:15.5736137Z Adding repository directory to the temporary git global config as a safe directory
+2025-08-11T16:58:15.5747952Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/unifiedcontractors-project/unifiedcontractors-project
+2025-08-11T16:58:15.5782740Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-08-11T16:58:15.5815519Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-08-11T16:58:15.6071438Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-08-11T16:58:15.6092179Z http.https://github.com/.extraheader
+2025-08-11T16:58:15.6105006Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-08-11T16:58:15.6135366Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-08-11T16:58:15.6506288Z Cleaning up orphan processes

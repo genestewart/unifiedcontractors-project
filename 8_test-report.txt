@@ -1,0 +1,28 @@
+﻿2025-08-11T16:59:05.8722955Z Current runner version: '2.327.1'
+2025-08-11T16:59:05.8747132Z ##[group]Runner Image Provisioner
+2025-08-11T16:59:05.8747975Z Hosted Compute Agent
+2025-08-11T16:59:05.8748507Z Version: 20250711.363
+2025-08-11T16:59:05.8749169Z Commit: 6785254374ce925a23743850c1cb91912ce5c14c
+2025-08-11T16:59:05.8749875Z Build Date: 2025-07-11T20:04:25Z
+2025-08-11T16:59:05.8750448Z ##[endgroup]
+2025-08-11T16:59:05.8751065Z ##[group]Operating System
+2025-08-11T16:59:05.8751614Z Ubuntu
+2025-08-11T16:59:05.8752284Z 24.04.2
+2025-08-11T16:59:05.8752721Z LTS
+2025-08-11T16:59:05.8753265Z ##[endgroup]
+2025-08-11T16:59:05.8753748Z ##[group]Runner Image
+2025-08-11T16:59:05.8754333Z Image: ubuntu-24.04
+2025-08-11T16:59:05.8754936Z Version: 20250804.2.0
+2025-08-11T16:59:05.8755925Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250804.2/images/ubuntu/Ubuntu2404-Readme.md
+2025-08-11T16:59:05.8757462Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250804.2
+2025-08-11T16:59:05.8758450Z ##[endgroup]
+2025-08-11T16:59:05.8759630Z ##[group]GITHUB_TOKEN Permissions
+2025-08-11T16:59:05.8761424Z Contents: read
+2025-08-11T16:59:05.8761953Z Metadata: read
+2025-08-11T16:59:05.8762880Z Packages: read
+2025-08-11T16:59:05.8763371Z ##[endgroup]
+2025-08-11T16:59:05.8765445Z Secret source: Actions
+2025-08-11T16:59:05.8766190Z Prepare workflow directory
+2025-08-11T16:59:05.9108823Z Prepare all required actions
+2025-08-11T16:59:05.9168065Z Getting action download info
+2025-08-11T16:59:06.3977449Z ##[error]This request has been automatically failed because it uses a deprecated version of `actions/download-artifact: v3`. Learn more: https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions/. This request has been automatically failed because it uses a deprecated version of `actions/upload-artifact: v3`. Learn more: https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions/

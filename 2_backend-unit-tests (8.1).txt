@@ -1,0 +1,598 @@
+﻿2025-08-11T16:58:03.0248918Z Current runner version: '2.327.1'
+2025-08-11T16:58:03.0275447Z ##[group]Runner Image Provisioner
+2025-08-11T16:58:03.0276230Z Hosted Compute Agent
+2025-08-11T16:58:03.0276850Z Version: 20250711.363
+2025-08-11T16:58:03.0277440Z Commit: 6785254374ce925a23743850c1cb91912ce5c14c
+2025-08-11T16:58:03.0278074Z Build Date: 2025-07-11T20:04:25Z
+2025-08-11T16:58:03.0278720Z ##[endgroup]
+2025-08-11T16:58:03.0279269Z ##[group]Operating System
+2025-08-11T16:58:03.0279792Z Ubuntu
+2025-08-11T16:58:03.0280328Z 24.04.2
+2025-08-11T16:58:03.0280754Z LTS
+2025-08-11T16:58:03.0281203Z ##[endgroup]
+2025-08-11T16:58:03.0282018Z ##[group]Runner Image
+2025-08-11T16:58:03.0282628Z Image: ubuntu-24.04
+2025-08-11T16:58:03.0283104Z Version: 20250804.2.0
+2025-08-11T16:58:03.0284138Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250804.2/images/ubuntu/Ubuntu2404-Readme.md
+2025-08-11T16:58:03.0285686Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250804.2
+2025-08-11T16:58:03.0287117Z ##[endgroup]
+2025-08-11T16:58:03.0288227Z ##[group]GITHUB_TOKEN Permissions
+2025-08-11T16:58:03.0290516Z Contents: read
+2025-08-11T16:58:03.0291054Z Metadata: read
+2025-08-11T16:58:03.0291837Z Packages: read
+2025-08-11T16:58:03.0292275Z ##[endgroup]
+2025-08-11T16:58:03.0294600Z Secret source: Actions
+2025-08-11T16:58:03.0295550Z Prepare workflow directory
+2025-08-11T16:58:03.0741500Z Prepare all required actions
+2025-08-11T16:58:03.0782210Z Getting action download info
+2025-08-11T16:58:03.4920805Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-08-11T16:58:03.4922193Z Version: 4.3.0
+2025-08-11T16:58:03.4923278Z Digest: sha256:62afad8896fc57a531e3d48e3f489c729474ff63a4c1791408cea7b32a62ef32
+2025-08-11T16:58:03.4924550Z Source commit SHA: 08eba0b27e820071cde6df949e0beb9ba4906955
+2025-08-11T16:58:03.4925269Z ##[endgroup]
+2025-08-11T16:58:03.7285600Z Download action repository 'shivammathur/setup-php@v2' (SHA:20529878ed81ef8e78ddf08b480401e6101a850f)
+2025-08-11T16:58:04.0389924Z ##[group]Download immutable action package 'actions/cache@v3'
+2025-08-11T16:58:04.0390904Z Version: 3.4.3
+2025-08-11T16:58:04.0392173Z Digest: sha256:912f76fb11db1ca09ae23248a39eb86e79ea0f0f6e183d9cb96d0b778eeea4e2
+2025-08-11T16:58:04.0393654Z Source commit SHA: 2f8e54208210a422b2efd51efaa6bd6d7ca8920f
+2025-08-11T16:58:04.0394576Z ##[endgroup]
+2025-08-11T16:58:04.3200049Z Download action repository 'codecov/codecov-action@v3' (SHA:ab904c41d6ece82784817410c45d8b8c02684457)
+2025-08-11T16:58:04.8264825Z Complete job name: backend-unit-tests (8.1)
+2025-08-11T16:58:04.8884095Z ##[group]Checking docker version
+2025-08-11T16:58:04.8899000Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2025-08-11T16:58:04.9681184Z '1.48'
+2025-08-11T16:58:04.9695790Z Docker daemon API version: '1.48'
+2025-08-11T16:58:04.9697293Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2025-08-11T16:58:04.9869197Z '1.48'
+2025-08-11T16:58:04.9884952Z Docker client API version: '1.48'
+2025-08-11T16:58:04.9892227Z ##[endgroup]
+2025-08-11T16:58:04.9896478Z ##[group]Clean up resources from previous jobs
+2025-08-11T16:58:04.9902950Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=7fa03d"
+2025-08-11T16:58:05.0073045Z ##[command]/usr/bin/docker network prune --force --filter "label=7fa03d"
+2025-08-11T16:58:05.0218590Z ##[endgroup]
+2025-08-11T16:58:05.0219485Z ##[group]Create local container network
+2025-08-11T16:58:05.0231549Z ##[command]/usr/bin/docker network create --label 7fa03d github_network_a2f5c725fb43482b8360efa865617b93
+2025-08-11T16:58:05.0814882Z 821b8b3259260f2a167ad0634b26cbfd2f0afb6c451696a72a9909dd4bf4aea5
+2025-08-11T16:58:05.0839502Z ##[endgroup]
+2025-08-11T16:58:05.0865975Z ##[group]Starting mysql service container
+2025-08-11T16:58:05.0889148Z ##[command]/usr/bin/docker pull mysql:8.0
+2025-08-11T16:58:05.5082534Z 8.0: Pulling from library/mysql
+2025-08-11T16:58:05.6158878Z 10aec8a104c7: Pulling fs layer
+2025-08-11T16:58:05.6169656Z eb4c833f6ac8: Pulling fs layer
+2025-08-11T16:58:05.6172563Z ac1d09b99a58: Pulling fs layer
+2025-08-11T16:58:05.6174115Z d90a2df7273a: Pulling fs layer
+2025-08-11T16:58:05.6175592Z 29def2d20dd4: Pulling fs layer
+2025-08-11T16:58:05.6177054Z 21c02f1ef6a5: Pulling fs layer
+2025-08-11T16:58:05.6178500Z 227c621e92bf: Pulling fs layer
+2025-08-11T16:58:05.6179967Z 0dd51a1cf370: Pulling fs layer
+2025-08-11T16:58:05.6181690Z c17e5ae8443e: Pulling fs layer
+2025-08-11T16:58:05.6183163Z 6ae00a88a906: Pulling fs layer
+2025-08-11T16:58:05.6184602Z 13ecfab825f5: Pulling fs layer
+2025-08-11T16:58:05.6186035Z d90a2df7273a: Waiting
+2025-08-11T16:58:05.6187271Z 29def2d20dd4: Waiting
+2025-08-11T16:58:05.6188524Z 21c02f1ef6a5: Waiting
+2025-08-11T16:58:05.6189771Z 227c621e92bf: Waiting
+2025-08-11T16:58:05.6191014Z 0dd51a1cf370: Waiting
+2025-08-11T16:58:05.6192412Z c17e5ae8443e: Waiting
+2025-08-11T16:58:05.6193648Z 6ae00a88a906: Waiting
+2025-08-11T16:58:05.6194881Z 13ecfab825f5: Waiting
+2025-08-11T16:58:05.7384200Z eb4c833f6ac8: Verifying Checksum
+2025-08-11T16:58:05.7386199Z eb4c833f6ac8: Download complete
+2025-08-11T16:58:05.7689781Z ac1d09b99a58: Verifying Checksum
+2025-08-11T16:58:05.7692007Z ac1d09b99a58: Download complete
+2025-08-11T16:58:05.8922685Z 29def2d20dd4: Download complete
+2025-08-11T16:58:05.9589993Z d90a2df7273a: Verifying Checksum
+2025-08-11T16:58:05.9591982Z d90a2df7273a: Download complete
+2025-08-11T16:58:05.9994618Z 21c02f1ef6a5: Download complete
+2025-08-11T16:58:06.1098241Z 0dd51a1cf370: Verifying Checksum
+2025-08-11T16:58:06.1101017Z 0dd51a1cf370: Download complete
+2025-08-11T16:58:06.5825425Z 227c621e92bf: Verifying Checksum
+2025-08-11T16:58:06.5826019Z 227c621e92bf: Download complete
+2025-08-11T16:58:06.7009754Z 6ae00a88a906: Verifying Checksum
+2025-08-11T16:58:06.7010845Z 6ae00a88a906: Download complete
+2025-08-11T16:58:06.8533504Z 13ecfab825f5: Verifying Checksum
+2025-08-11T16:58:06.8534015Z 13ecfab825f5: Download complete
+2025-08-11T16:58:07.0138107Z 10aec8a104c7: Verifying Checksum
+2025-08-11T16:58:07.0138748Z 10aec8a104c7: Download complete
+2025-08-11T16:58:08.2689795Z 10aec8a104c7: Pull complete
+2025-08-11T16:58:10.0136752Z c17e5ae8443e: Verifying Checksum
+2025-08-11T16:58:10.0137229Z c17e5ae8443e: Download complete
+2025-08-11T16:58:10.1217455Z eb4c833f6ac8: Pull complete
+2025-08-11T16:58:10.1660179Z ac1d09b99a58: Pull complete
+2025-08-11T16:58:10.3871695Z d90a2df7273a: Pull complete
+2025-08-11T16:58:10.4085802Z 29def2d20dd4: Pull complete
+2025-08-11T16:58:10.4211810Z 21c02f1ef6a5: Pull complete
+2025-08-11T16:58:11.1602605Z 227c621e92bf: Pull complete
+2025-08-11T16:58:11.1757697Z 0dd51a1cf370: Pull complete
+2025-08-11T16:58:18.4590047Z c17e5ae8443e: Pull complete
+2025-08-11T16:58:18.4725251Z 6ae00a88a906: Pull complete
+2025-08-11T16:58:18.4827923Z 13ecfab825f5: Pull complete
+2025-08-11T16:58:18.4884580Z Digest: sha256:f483084b37081f1574c8d4e4485cd9028abcb022973c44c079a520eb01801d55
+2025-08-11T16:58:18.4901515Z Status: Downloaded newer image for mysql:8.0
+2025-08-11T16:58:18.4915461Z docker.io/library/mysql:8.0
+2025-08-11T16:58:18.4976155Z ##[command]/usr/bin/docker create --name 5ee8d0f9ca2a4374988c926fad5959b5_mysql80_19e085 --label 7fa03d --network github_network_a2f5c725fb43482b8360efa865617b93 --network-alias mysql -p 3306:3306 --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3 -e "MYSQL_ROOT_PASSWORD=password" -e "MYSQL_DATABASE=unified_contractors_test" -e GITHUB_ACTIONS=true -e CI=true mysql:8.0
+2025-08-11T16:58:18.5309048Z 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:18.5334438Z ##[command]/usr/bin/docker start 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:18.7513663Z 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:18.7536892Z ##[command]/usr/bin/docker ps --all --filter id=1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2025-08-11T16:58:18.7669748Z 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16 Up Less than a second (health: starting)
+2025-08-11T16:58:18.7692836Z ##[command]/usr/bin/docker port 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:18.7829566Z 3306/tcp -> 0.0.0.0:3306
+2025-08-11T16:58:18.7830252Z 3306/tcp -> [::]:3306
+2025-08-11T16:58:18.7891148Z ##[endgroup]
+2025-08-11T16:58:18.7902752Z ##[group]Waiting for all services to be ready
+2025-08-11T16:58:18.7919834Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:18.8059822Z starting
+2025-08-11T16:58:18.8089214Z mysql service is starting, waiting 2 seconds before checking again.
+2025-08-11T16:58:20.8086398Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:20.8223135Z starting
+2025-08-11T16:58:20.8236030Z mysql service is starting, waiting 3 seconds before checking again.
+2025-08-11T16:58:24.7893741Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:24.8019877Z starting
+2025-08-11T16:58:24.8040545Z mysql service is starting, waiting 7 seconds before checking again.
+2025-08-11T16:58:32.1947408Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:32.2075396Z healthy
+2025-08-11T16:58:32.2096699Z mysql service is healthy.
+2025-08-11T16:58:32.2097500Z ##[endgroup]
+2025-08-11T16:58:32.2415781Z ##[group]Run actions/checkout@v4
+2025-08-11T16:58:32.2416429Z with:
+2025-08-11T16:58:32.2416690Z   repository: genestewart/unifiedcontractors-project
+2025-08-11T16:58:32.2417242Z   token: ***
+2025-08-11T16:58:32.2417421Z   ssh-strict: true
+2025-08-11T16:58:32.2417593Z   ssh-user: git
+2025-08-11T16:58:32.2417795Z   persist-credentials: true
+2025-08-11T16:58:32.2418000Z   clean: true
+2025-08-11T16:58:32.2418188Z   sparse-checkout-cone-mode: true
+2025-08-11T16:58:32.2418406Z   fetch-depth: 1
+2025-08-11T16:58:32.2418632Z   fetch-tags: false
+2025-08-11T16:58:32.2418810Z   show-progress: true
+2025-08-11T16:58:32.2418987Z   lfs: false
+2025-08-11T16:58:32.2419152Z   submodules: false
+2025-08-11T16:58:32.2419334Z   set-safe-directory: true
+2025-08-11T16:58:32.2419849Z ##[endgroup]
+2025-08-11T16:58:32.3504889Z Syncing repository: genestewart/unifiedcontractors-project
+2025-08-11T16:58:32.3506217Z ##[group]Getting Git version info
+2025-08-11T16:58:32.3506771Z Working directory is '/home/runner/work/unifiedcontractors-project/unifiedcontractors-project'
+2025-08-11T16:58:32.3507426Z [command]/usr/bin/git version
+2025-08-11T16:58:32.3602735Z git version 2.50.1
+2025-08-11T16:58:32.3631792Z ##[endgroup]
+2025-08-11T16:58:32.3650525Z Temporarily overriding HOME='/home/runner/work/_temp/f060ed4c-0696-4567-8f54-5d23d295363f' before making global git config changes
+2025-08-11T16:58:32.3653556Z Adding repository directory to the temporary git global config as a safe directory
+2025-08-11T16:58:32.3668199Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/unifiedcontractors-project/unifiedcontractors-project
+2025-08-11T16:58:32.3711537Z Deleting the contents of '/home/runner/work/unifiedcontractors-project/unifiedcontractors-project'
+2025-08-11T16:58:32.3715923Z ##[group]Initializing the repository
+2025-08-11T16:58:32.3720959Z [command]/usr/bin/git init /home/runner/work/unifiedcontractors-project/unifiedcontractors-project
+2025-08-11T16:58:32.3805348Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-08-11T16:58:32.3806241Z hint: is subject to change. To configure the initial branch name to use in all
+2025-08-11T16:58:32.3806825Z hint: of your new repositories, which will suppress this warning, call:
+2025-08-11T16:58:32.3807173Z hint:
+2025-08-11T16:58:32.3807717Z hint: 	git config --global init.defaultBranch <name>
+2025-08-11T16:58:32.3808003Z hint:
+2025-08-11T16:58:32.3808282Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-08-11T16:58:32.3808760Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-08-11T16:58:32.3809113Z hint:
+2025-08-11T16:58:32.3809299Z hint: 	git branch -m <name>
+2025-08-11T16:58:32.3809509Z hint:
+2025-08-11T16:58:32.3810017Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-08-11T16:58:32.3811175Z Initialized empty Git repository in /home/runner/work/unifiedcontractors-project/unifiedcontractors-project/.git/
+2025-08-11T16:58:32.3824331Z [command]/usr/bin/git remote add origin https://github.com/genestewart/unifiedcontractors-project
+2025-08-11T16:58:32.3862722Z ##[endgroup]
+2025-08-11T16:58:32.3863320Z ##[group]Disabling automatic garbage collection
+2025-08-11T16:58:32.3868430Z [command]/usr/bin/git config --local gc.auto 0
+2025-08-11T16:58:32.3900300Z ##[endgroup]
+2025-08-11T16:58:32.3900883Z ##[group]Setting up auth
+2025-08-11T16:58:32.3908574Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-08-11T16:58:32.3941642Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-08-11T16:58:32.4263757Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-08-11T16:58:32.4296234Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-08-11T16:58:32.4535840Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-08-11T16:58:32.4572487Z ##[endgroup]
+2025-08-11T16:58:32.4573081Z ##[group]Fetching the repository
+2025-08-11T16:58:32.4581539Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bfce63de198f20eb1c5aec3c3503669208ff2681:refs/remotes/origin/main
+2025-08-11T16:58:34.5100230Z From https://github.com/genestewart/unifiedcontractors-project
+2025-08-11T16:58:34.5100995Z  * [new ref]           bfce63de198f20eb1c5aec3c3503669208ff2681 -> origin/main
+2025-08-11T16:58:34.5128118Z ##[endgroup]
+2025-08-11T16:58:34.5128479Z ##[group]Determining the checkout info
+2025-08-11T16:58:34.5130706Z ##[endgroup]
+2025-08-11T16:58:34.5136145Z [command]/usr/bin/git sparse-checkout disable
+2025-08-11T16:58:34.5175655Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-08-11T16:58:34.5202451Z ##[group]Checking out the ref
+2025-08-11T16:58:34.5207891Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-08-11T16:58:35.5540415Z Updating files:  51% (16169/31364)
+2025-08-11T16:58:35.5687207Z Updating files:  52% (16310/31364)
+2025-08-11T16:58:35.5882325Z Updating files:  53% (16623/31364)
+2025-08-11T16:58:35.6043538Z Updating files:  54% (16937/31364)
+2025-08-11T16:58:35.6180194Z Updating files:  55% (17251/31364)
+2025-08-11T16:58:35.6408311Z Updating files:  56% (17564/31364)
+2025-08-11T16:58:35.6557598Z Updating files:  57% (17878/31364)
+2025-08-11T16:58:35.6704990Z Updating files:  58% (18192/31364)
+2025-08-11T16:58:35.6838907Z Updating files:  59% (18505/31364)
+2025-08-11T16:58:35.6968370Z Updating files:  60% (18819/31364)
+2025-08-11T16:58:35.7089607Z Updating files:  61% (19133/31364)
+2025-08-11T16:58:35.7203712Z Updating files:  62% (19446/31364)
+2025-08-11T16:58:35.7356516Z Updating files:  63% (19760/31364)
+2025-08-11T16:58:35.7605123Z Updating files:  64% (20073/31364)
+2025-08-11T16:58:35.7742278Z Updating files:  65% (20387/31364)
+2025-08-11T16:58:35.7875364Z Updating files:  66% (20701/31364)
+2025-08-11T16:58:35.8012832Z Updating files:  67% (21014/31364)
+2025-08-11T16:58:35.8150874Z Updating files:  68% (21328/31364)
+2025-08-11T16:58:35.8283526Z Updating files:  69% (21642/31364)
+2025-08-11T16:58:35.8416086Z Updating files:  70% (21955/31364)
+2025-08-11T16:58:35.8549470Z Updating files:  71% (22269/31364)
+2025-08-11T16:58:35.8680012Z Updating files:  72% (22583/31364)
+2025-08-11T16:58:35.9030317Z Updating files:  73% (22896/31364)
+2025-08-11T16:58:35.9186846Z Updating files:  74% (23210/31364)
+2025-08-11T16:58:35.9410382Z Updating files:  75% (23523/31364)
+2025-08-11T16:58:35.9539609Z Updating files:  76% (23837/31364)
+2025-08-11T16:58:35.9742608Z Updating files:  77% (24151/31364)
+2025-08-11T16:58:35.9988673Z Updating files:  78% (24464/31364)
+2025-08-11T16:58:36.0146176Z Updating files:  79% (24778/31364)
+2025-08-11T16:58:36.0271947Z Updating files:  80% (25092/31364)
+2025-08-11T16:58:36.0445119Z Updating files:  81% (25405/31364)
+2025-08-11T16:58:36.0679860Z Updating files:  82% (25719/31364)
+2025-08-11T16:58:36.1600222Z Updating files:  83% (26033/31364)
+2025-08-11T16:58:36.1746395Z Updating files:  84% (26346/31364)
+2025-08-11T16:58:36.1950396Z Updating files:  85% (26660/31364)
+2025-08-11T16:58:36.2090653Z Updating files:  86% (26974/31364)
+2025-08-11T16:58:36.2192558Z Updating files:  87% (27287/31364)
+2025-08-11T16:58:36.2462342Z Updating files:  88% (27601/31364)
+2025-08-11T16:58:36.2634108Z Updating files:  89% (27914/31364)
+2025-08-11T16:58:36.2842898Z Updating files:  90% (28228/31364)
+2025-08-11T16:58:36.3105642Z Updating files:  91% (28542/31364)
+2025-08-11T16:58:36.3268635Z Updating files:  92% (28855/31364)
+2025-08-11T16:58:36.3653777Z Updating files:  93% (29169/31364)
+2025-08-11T16:58:36.3808975Z Updating files:  94% (29483/31364)
+2025-08-11T16:58:36.3946247Z Updating files:  95% (29796/31364)
+2025-08-11T16:58:36.4323522Z Updating files:  96% (30110/31364)
+2025-08-11T16:58:36.4462079Z Updating files:  97% (30424/31364)
+2025-08-11T16:58:36.4610618Z Updating files:  98% (30737/31364)
+2025-08-11T16:58:36.4801220Z Updating files:  99% (31051/31364)
+2025-08-11T16:58:36.4801958Z Updating files: 100% (31364/31364)
+2025-08-11T16:58:36.4802495Z Updating files: 100% (31364/31364), done.
+2025-08-11T16:58:36.5125424Z Switched to a new branch 'main'
+2025-08-11T16:58:36.5126984Z branch 'main' set up to track 'origin/main'.
+2025-08-11T16:58:36.5177929Z ##[endgroup]
+2025-08-11T16:58:36.5217027Z [command]/usr/bin/git log -1 --format=%H
+2025-08-11T16:58:36.5239086Z bfce63de198f20eb1c5aec3c3503669208ff2681
+2025-08-11T16:58:36.5414281Z ##[group]Run shivammathur/setup-php@v2
+2025-08-11T16:58:36.5414554Z with:
+2025-08-11T16:58:36.5414726Z   php-version: 8.1
+2025-08-11T16:58:36.5415180Z   extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, mysql, pdo_mysql
+2025-08-11T16:58:36.5415667Z   coverage: xdebug
+2025-08-11T16:58:36.5415848Z   ini-file: production
+2025-08-11T16:58:36.5416165Z   github-token: ***
+2025-08-11T16:58:36.5416350Z ##[endgroup]
+2025-08-11T16:58:36.6138125Z [command]/usr/bin/bash /home/runner/work/_actions/shivammathur/setup-php/v2/src/scripts/run.sh
+2025-08-11T16:58:36.6392133Z 
+2025-08-11T16:58:36.6392965Z [90;1m==> [0m[37;1mSetup PHP[0m
+2025-08-11T16:58:42.2783915Z [32;1m✓ [0m[34;1mPHP [0m[90;1mInstalled PHP 8.1.33[0m
+2025-08-11T16:58:42.2784350Z 
+2025-08-11T16:58:42.2784547Z [90;1m==> [0m[37;1mSetup Extensions[0m
+2025-08-11T16:58:42.3247040Z [32;1m✓ [0m[34;1mdom [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3276368Z [32;1m✓ [0m[34;1mcurl [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3307645Z [32;1m✓ [0m[34;1mlibxml [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3337485Z [32;1m✓ [0m[34;1mmbstring [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3367319Z [32;1m✓ [0m[34;1mzip [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3398178Z [32;1m✓ [0m[34;1mpcntl [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3427712Z [32;1m✓ [0m[34;1mpdo [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3457645Z [32;1m✓ [0m[34;1msqlite3 [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3473637Z [32;1m✓ [0m[34;1mpdo_sqlite [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3504124Z [32;1m✓ [0m[34;1mbcmath [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3534014Z [32;1m✓ [0m[34;1msoap [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3563892Z [32;1m✓ [0m[34;1mintl [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3593736Z [32;1m✓ [0m[34;1mgd [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3623937Z [32;1m✓ [0m[34;1mexif [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3653412Z [32;1m✓ [0m[34;1miconv [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3683802Z [32;1m✓ [0m[34;1mimagick [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3712808Z [32;1m✓ [0m[34;1mmysql [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3728595Z [32;1m✓ [0m[34;1mpdo_mysql [0m[90;1mEnabled[0m
+2025-08-11T16:58:42.3729608Z 
+2025-08-11T16:58:42.3729904Z [90;1m==> [0m[37;1mSetup Tools[0m
+2025-08-11T16:58:42.7654442Z [32;1m✓ [0m[34;1mcomposer [0m[90;1mAdded composer 2.8.10[0m
+2025-08-11T16:58:42.7654909Z 
+2025-08-11T16:58:42.7655164Z [90;1m==> [0m[37;1mSetup Coverage[0m
+2025-08-11T16:58:42.8638811Z [32;1m✓ [0m[34;1mxdebug [0m[90;1mXdebug 3.4.5 enabled as coverage driver[0m
+2025-08-11T16:58:42.8639388Z 
+2025-08-11T16:58:42.8639682Z [90;1m==> [0m[37;1mSponsor setup-php[0m
+2025-08-11T16:58:42.8642204Z [32;1m✓ [0m[34;1msetup-php [0m[90;1mhttps://setup-php.com/sponsor[0m
+2025-08-11T16:58:42.8830091Z ##[group]Run echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+2025-08-11T16:58:42.8830592Z [36;1mecho "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT[0m
+2025-08-11T16:58:42.8877701Z shell: /usr/bin/bash -e {0}
+2025-08-11T16:58:42.8877947Z env:
+2025-08-11T16:58:42.8878118Z   COMPOSER_PROCESS_TIMEOUT: 0
+2025-08-11T16:58:42.8878354Z   COMPOSER_NO_INTERACTION: 1
+2025-08-11T16:58:42.8878573Z   COMPOSER_NO_AUDIT: 1
+2025-08-11T16:58:42.8878760Z ##[endgroup]
+2025-08-11T16:58:45.3950117Z ##[group]Run actions/cache@v3
+2025-08-11T16:58:45.3950385Z with:
+2025-08-11T16:58:45.3950589Z   path: /home/runner/.cache/composer/files
+2025-08-11T16:58:45.3951076Z   key: Linux-composer-0f6e1a1b95b03cd366ce4dcf0d99018975c7ef16aaadb5962898910b20d179b0
+2025-08-11T16:58:45.3952005Z   restore-keys: Linux-composer-
+2025-08-11T16:58:45.3952275Z   enableCrossOsArchive: false
+2025-08-11T16:58:45.3952518Z   fail-on-cache-miss: false
+2025-08-11T16:58:45.3952747Z   lookup-only: false
+2025-08-11T16:58:45.3952942Z env:
+2025-08-11T16:58:45.3953122Z   COMPOSER_PROCESS_TIMEOUT: 0
+2025-08-11T16:58:45.3953362Z   COMPOSER_NO_INTERACTION: 1
+2025-08-11T16:58:45.3953583Z   COMPOSER_NO_AUDIT: 1
+2025-08-11T16:58:45.3953791Z ##[endgroup]
+2025-08-11T16:58:45.6626346Z Cache not found for input keys: Linux-composer-0f6e1a1b95b03cd366ce4dcf0d99018975c7ef16aaadb5962898910b20d179b0, Linux-composer-
+2025-08-11T16:58:45.6697875Z ##[group]Run composer install --no-progress --prefer-dist --optimize-autoloader
+2025-08-11T16:58:45.6698405Z [36;1mcomposer install --no-progress --prefer-dist --optimize-autoloader[0m
+2025-08-11T16:58:45.6738513Z shell: /usr/bin/bash -e {0}
+2025-08-11T16:58:45.6738749Z env:
+2025-08-11T16:58:45.6738921Z   COMPOSER_PROCESS_TIMEOUT: 0
+2025-08-11T16:58:45.6739163Z   COMPOSER_NO_INTERACTION: 1
+2025-08-11T16:58:45.6739376Z   COMPOSER_NO_AUDIT: 1
+2025-08-11T16:58:45.6739567Z ##[endgroup]
+2025-08-11T16:58:45.8740122Z Installing dependencies from lock file (including require-dev)
+2025-08-11T16:58:45.8790466Z Verifying lock file contents can be installed on current platform.
+2025-08-11T16:58:45.9677945Z Your lock file does not contain a compatible set of packages. Please run composer update.
+2025-08-11T16:58:45.9678593Z 
+2025-08-11T16:58:45.9678722Z   Problem 1
+2025-08-11T16:58:45.9679421Z     - Root composer.json requires php ^8.2 but your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9680123Z   Problem 2
+2025-08-11T16:58:45.9680687Z     - endroid/qr-code is locked to version 6.0.9 and an update of this package was not requested.
+2025-08-11T16:58:45.9681973Z     - endroid/qr-code 6.0.9 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9682480Z   Problem 3
+2025-08-11T16:58:45.9683201Z     - laravel/framework is locked to version v12.22.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9684084Z     - laravel/framework v12.22.1 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9684820Z   Problem 4
+2025-08-11T16:58:45.9685365Z     - laravel/sanctum is locked to version v4.2.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9686336Z     - laravel/sanctum v4.2.0 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9687036Z   Problem 5
+2025-08-11T16:58:45.9687421Z     - nunomaduro/termwind is locked to version v2.3.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9688045Z     - nunomaduro/termwind v2.3.1 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9688473Z   Problem 6
+2025-08-11T16:58:45.9688805Z     - symfony/clock is locked to version v7.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9689380Z     - symfony/clock v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9689792Z   Problem 7
+2025-08-11T16:58:45.9690119Z     - symfony/console is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9690700Z     - symfony/console v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9691115Z   Problem 8
+2025-08-11T16:58:45.9691697Z     - symfony/css-selector is locked to version v7.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9692335Z     - symfony/css-selector v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9692762Z   Problem 9
+2025-08-11T16:58:45.9693122Z     - symfony/error-handler is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9693755Z     - symfony/error-handler v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9694193Z   Problem 10
+2025-08-11T16:58:45.9694572Z     - symfony/event-dispatcher is locked to version v7.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9695228Z     - symfony/event-dispatcher v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9695682Z   Problem 11
+2025-08-11T16:58:45.9696008Z     - symfony/finder is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9696832Z     - symfony/finder v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9697239Z   Problem 12
+2025-08-11T16:58:45.9697579Z     - symfony/http-foundation is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9698183Z     - symfony/http-foundation v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9698603Z   Problem 13
+2025-08-11T16:58:45.9698935Z     - symfony/http-kernel is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9699502Z     - symfony/http-kernel v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9699898Z   Problem 14
+2025-08-11T16:58:45.9700208Z     - symfony/mailer is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9700747Z     - symfony/mailer v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9701143Z   Problem 15
+2025-08-11T16:58:45.9701676Z     - symfony/mime is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9702214Z     - symfony/mime v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9702618Z   Problem 16
+2025-08-11T16:58:45.9703066Z     - symfony/process is locked to version v7.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9703618Z     - symfony/process v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9703995Z   Problem 17
+2025-08-11T16:58:45.9704304Z     - symfony/routing is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9704838Z     - symfony/routing v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9705220Z   Problem 18
+2025-08-11T16:58:45.9705527Z     - symfony/string is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9706061Z     - symfony/string v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9706437Z   Problem 19
+2025-08-11T16:58:45.9706764Z     - symfony/translation is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9707342Z     - symfony/translation v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9707742Z   Problem 20
+2025-08-11T16:58:45.9708037Z     - symfony/uid is locked to version v7.3.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9708551Z     - symfony/uid v7.3.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9708917Z   Problem 21
+2025-08-11T16:58:45.9709237Z     - symfony/var-dumper is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9709794Z     - symfony/var-dumper v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9710203Z   Problem 22
+2025-08-11T16:58:45.9710528Z     - laravel/pail is locked to version v1.2.3 and an update of this package was not requested.
+2025-08-11T16:58:45.9711058Z     - laravel/pail v1.2.3 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9711651Z   Problem 23
+2025-08-11T16:58:45.9711963Z     - laravel/pint is locked to version v1.24.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9712482Z     - laravel/pint v1.24.0 requires php ^8.2.0 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9712857Z   Problem 24
+2025-08-11T16:58:45.9713188Z     - nunomaduro/collision is locked to version v8.8.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9713919Z     - nunomaduro/collision v8.8.2 requires php ^8.2.0 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9714348Z   Problem 25
+2025-08-11T16:58:45.9714701Z     - phpunit/php-code-coverage is locked to version 11.0.10 and an update of this package was not requested.
+2025-08-11T16:58:45.9715320Z     - phpunit/php-code-coverage 11.0.10 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9715739Z   Problem 26
+2025-08-11T16:58:45.9716080Z     - phpunit/php-file-iterator is locked to version 5.1.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9716714Z     - phpunit/php-file-iterator 5.1.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9717138Z   Problem 27
+2025-08-11T16:58:45.9717464Z     - phpunit/php-invoker is locked to version 5.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9718041Z     - phpunit/php-invoker 5.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9718446Z   Problem 28
+2025-08-11T16:58:45.9718789Z     - phpunit/php-text-template is locked to version 4.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9719404Z     - phpunit/php-text-template 4.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9719940Z   Problem 29
+2025-08-11T16:58:45.9720264Z     - phpunit/php-timer is locked to version 7.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9720819Z     - phpunit/php-timer 7.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9721203Z   Problem 30
+2025-08-11T16:58:45.9721628Z     - phpunit/phpunit is locked to version 11.5.29 and an update of this package was not requested.
+2025-08-11T16:58:45.9722172Z     - phpunit/phpunit 11.5.29 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9722558Z   Problem 31
+2025-08-11T16:58:45.9722882Z     - sebastian/cli-parser is locked to version 3.0.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9723450Z     - sebastian/cli-parser 3.0.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9723849Z   Problem 32
+2025-08-11T16:58:45.9724162Z     - sebastian/code-unit is locked to version 3.0.3 and an update of this package was not requested.
+2025-08-11T16:58:45.9724729Z     - sebastian/code-unit 3.0.3 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9725119Z   Problem 33
+2025-08-11T16:58:45.9725496Z     - sebastian/code-unit-reverse-lookup is locked to version 4.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9726173Z     - sebastian/code-unit-reverse-lookup 4.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9726618Z   Problem 34
+2025-08-11T16:58:45.9726967Z     - sebastian/comparator is locked to version 6.3.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9727531Z     - sebastian/comparator 6.3.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9727932Z   Problem 35
+2025-08-11T16:58:45.9728243Z     - sebastian/complexity is locked to version 4.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9728810Z     - sebastian/complexity 4.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9729206Z   Problem 36
+2025-08-11T16:58:45.9729499Z     - sebastian/diff is locked to version 6.0.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9730022Z     - sebastian/diff 6.0.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9730390Z   Problem 37
+2025-08-11T16:58:45.9730723Z     - sebastian/environment is locked to version 7.2.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9731520Z     - sebastian/environment 7.2.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9732002Z   Problem 38
+2025-08-11T16:58:45.9732322Z     - sebastian/exporter is locked to version 6.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9732877Z     - sebastian/exporter 6.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9733278Z   Problem 39
+2025-08-11T16:58:45.9733603Z     - sebastian/global-state is locked to version 7.0.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9734185Z     - sebastian/global-state 7.0.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9734592Z   Problem 40
+2025-08-11T16:58:45.9734920Z     - sebastian/lines-of-code is locked to version 3.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9735539Z     - sebastian/lines-of-code 3.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9735946Z   Problem 41
+2025-08-11T16:58:45.9736306Z     - sebastian/object-enumerator is locked to version 6.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9736942Z     - sebastian/object-enumerator 6.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9737482Z   Problem 42
+2025-08-11T16:58:45.9737831Z     - sebastian/object-reflector is locked to version 4.0.1 and an update of this package was not requested.
+2025-08-11T16:58:45.9738442Z     - sebastian/object-reflector 4.0.1 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9738860Z   Problem 43
+2025-08-11T16:58:45.9739203Z     - sebastian/recursion-context is locked to version 6.0.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9739828Z     - sebastian/recursion-context 6.0.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9740244Z   Problem 44
+2025-08-11T16:58:45.9740549Z     - sebastian/type is locked to version 5.1.3 and an update of this package was not requested.
+2025-08-11T16:58:45.9741071Z     - sebastian/type 5.1.3 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9741662Z   Problem 45
+2025-08-11T16:58:45.9741980Z     - sebastian/version is locked to version 5.0.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9742525Z     - sebastian/version 5.0.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9742920Z   Problem 46
+2025-08-11T16:58:45.9743213Z     - symfony/yaml is locked to version v7.3.2 and an update of this package was not requested.
+2025-08-11T16:58:45.9743728Z     - symfony/yaml v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9764592Z   Problem 47
+2025-08-11T16:58:45.9765269Z     - fruitcake/php-cors is locked to version v1.3.0 and an update of this package was not requested.
+2025-08-11T16:58:45.9766234Z     - fruitcake/php-cors v1.3.0 requires symfony/http-foundation ^4.4|^5.4|^6|^7 -> satisfiable by symfony/http-foundation[v7.3.2].
+2025-08-11T16:58:45.9766986Z     - symfony/http-foundation v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+2025-08-11T16:58:45.9767384Z 
+2025-08-11T16:58:45.9850644Z ##[error]Your lock file does not contain a compatible set of packages. Please run composer update.
+
+  Problem 1
+    - Root composer.json requires php ^8.2 but your php version (8.1.33) does not satisfy that requirement.
+  Problem 2
+    - endroid/qr-code is locked to version 6.0.9 and an update of this package was not requested.
+    - endroid/qr-code 6.0.9 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 3
+    - laravel/framework is locked to version v12.22.1 and an update of this package was not requested.
+    - laravel/framework v12.22.1 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 4
+    - laravel/sanctum is locked to version v4.2.0 and an update of this package was not requested.
+    - laravel/sanctum v4.2.0 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 5
+    - nunomaduro/termwind is locked to version v2.3.1 and an update of this package was not requested.
+    - nunomaduro/termwind v2.3.1 requires php ^8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 6
+    - symfony/clock is locked to version v7.3.0 and an update of this package was not requested.
+    - symfony/clock v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 7
+    - symfony/console is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/console v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 8
+    - symfony/css-selector is locked to version v7.3.0 and an update of this package was not requested.
+    - symfony/css-selector v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 9
+    - symfony/error-handler is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/error-handler v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 10
+    - symfony/event-dispatcher is locked to version v7.3.0 and an update of this package was not requested.
+    - symfony/event-dispatcher v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 11
+    - symfony/finder is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/finder v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 12
+    - symfony/http-foundation is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/http-foundation v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 13
+    - symfony/http-kernel is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/http-kernel v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 14
+    - symfony/mailer is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/mailer v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 15
+    - symfony/mime is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/mime v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 16
+    - symfony/process is locked to version v7.3.0 and an update of this package was not requested.
+    - symfony/process v7.3.0 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 17
+    - symfony/routing is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/routing v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 18
+    - symfony/string is locked to version v7.3.2 and an update of this package was not requested.
+    - symfony/string v7.3.2 requires php >=8.2 -> your php version (8.1.33) does not satisfy that requirement.
+  Problem 19
+    - symfony/
+2025-08-11T16:58:45.9910171Z ##[error]Process completed with exit code 2.
+2025-08-11T16:58:45.9997355Z Post job cleanup.
+2025-08-11T16:58:46.0954539Z [command]/usr/bin/git version
+2025-08-11T16:58:46.0991438Z git version 2.50.1
+2025-08-11T16:58:46.1036829Z Temporarily overriding HOME='/home/runner/work/_temp/c1dc2873-5c2a-45c0-bec2-9bf3932f30a6' before making global git config changes
+2025-08-11T16:58:46.1038101Z Adding repository directory to the temporary git global config as a safe directory
+2025-08-11T16:58:46.1051787Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/unifiedcontractors-project/unifiedcontractors-project
+2025-08-11T16:58:46.1088973Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-08-11T16:58:46.1124105Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-08-11T16:58:46.1404011Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-08-11T16:58:46.1430037Z http.https://github.com/.extraheader
+2025-08-11T16:58:46.1443260Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-08-11T16:58:46.1477011Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-08-11T16:58:46.1834927Z Print service container logs: 5ee8d0f9ca2a4374988c926fad5959b5_mysql80_19e085
+2025-08-11T16:58:46.1839222Z ##[command]/usr/bin/docker logs --details 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:46.1977548Z  2025-08-11T16:58:19.051467Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+2025-08-11T16:58:46.1979470Z  2025-08-11T16:58:19.051567Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.43) initializing of server in progress as process 80
+2025-08-11T16:58:46.1980672Z  2025-08-11 16:58:18+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.43-1.el9 started.
+2025-08-11T16:58:46.1981769Z  2025-08-11T16:58:19.056667Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-08-11T16:58:46.1982606Z  2025-08-11T16:58:19.259239Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-08-11T16:58:46.1983546Z  2025-08-11T16:58:20.004993Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2025-08-11T16:58:46.1984557Z  2025-08-11T16:58:22.398918Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+2025-08-11T16:58:46.1985418Z  2025-08-11T16:58:22.399677Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.43) starting as process 124
+2025-08-11T16:58:46.1985962Z  2025-08-11T16:58:22.410818Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-08-11T16:58:46.1986438Z  2025-08-11T16:58:22.503345Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-08-11T16:58:46.1986934Z  2025-08-11T16:58:22.689789Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-08-11T16:58:46.1987650Z  2025-08-11T16:58:22.689826Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-08-11T16:58:46.1988667Z  2025-08-11T16:58:22.692066Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2025-08-11T16:58:46.1990085Z  2025-08-11T16:58:22.705140Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+2025-08-11T16:58:46.1991065Z  2025-08-11T16:58:22.705235Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.43'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+2025-08-11T16:58:46.1992062Z  Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+2025-08-11T16:58:46.1992567Z  Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+2025-08-11T16:58:46.1993074Z  Warning: Unable to load '/usr/share/zoneinfo/leapseconds' as time zone. Skipping it.
+2025-08-11T16:58:46.1993547Z  Warning: Unable to load '/usr/share/zoneinfo/tzdata.zi' as time zone. Skipping it.
+2025-08-11T16:58:46.1993995Z  Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+2025-08-11T16:58:46.1994458Z  Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
+2025-08-11T16:58:46.1995051Z  2025-08-11T16:58:24.386831Z 11 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.43).
+2025-08-11T16:58:46.1995782Z  2025-08-11T16:58:25.212651Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.43)  MySQL Community Server - GPL.
+2025-08-11T16:58:46.1996673Z  2025-08-11T16:58:25.580466Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+2025-08-11T16:58:46.1997744Z  2025-08-11T16:58:25.581230Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.43) starting as process 1
+2025-08-11T16:58:46.1998291Z  2025-08-11T16:58:25.586165Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-08-11T16:58:46.1998756Z  2025-08-11T16:58:25.675559Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-08-11T16:58:46.1999350Z  2025-08-11T16:58:25.831963Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-08-11T16:58:46.2000036Z  2025-08-11T16:58:25.831996Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-08-11T16:58:46.2001070Z  2025-08-11T16:58:25.833564Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2025-08-11T16:58:46.2002302Z  2025-08-11T16:58:25.847119Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2025-08-11T16:58:46.2003258Z  2025-08-11T16:58:25.847234Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.43'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+2025-08-11T16:58:46.2004018Z  2025-08-11 16:58:18+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+2025-08-11T16:58:46.2004489Z  2025-08-11 16:58:18+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.43-1.el9 started.
+2025-08-11T16:58:46.2004931Z  2025-08-11 16:58:19+00:00 [Note] [Entrypoint]: Initializing database files
+2025-08-11T16:58:46.2005301Z  2025-08-11 16:58:22+00:00 [Note] [Entrypoint]: Database files initialized
+2025-08-11T16:58:46.2005664Z  2025-08-11 16:58:22+00:00 [Note] [Entrypoint]: Starting temporary server
+2025-08-11T16:58:46.2006016Z  2025-08-11 16:58:22+00:00 [Note] [Entrypoint]: Temporary server started.
+2025-08-11T16:58:46.2006386Z  '/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+2025-08-11T16:58:46.2006790Z  2025-08-11 16:58:24+00:00 [Note] [Entrypoint]: Creating database unified_contractors_test
+2025-08-11T16:58:46.2007110Z  
+2025-08-11T16:58:46.2007331Z  2025-08-11 16:58:24+00:00 [Note] [Entrypoint]: Stopping temporary server
+2025-08-11T16:58:46.2007688Z  2025-08-11 16:58:25+00:00 [Note] [Entrypoint]: Temporary server stopped
+2025-08-11T16:58:46.2007969Z  
+2025-08-11T16:58:46.2008232Z  2025-08-11 16:58:25+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+2025-08-11T16:58:46.2008556Z  
+2025-08-11T16:58:46.2014346Z Stop and remove container: 5ee8d0f9ca2a4374988c926fad5959b5_mysql80_19e085
+2025-08-11T16:58:46.2019664Z ##[command]/usr/bin/docker rm --force 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:48.3279880Z 1f56e0698bafdcd191da1012e23a283a117352c859aa92477dd1d63efc5ebb16
+2025-08-11T16:58:48.3308657Z Remove container network: github_network_a2f5c725fb43482b8360efa865617b93
+2025-08-11T16:58:48.3313142Z ##[command]/usr/bin/docker network rm github_network_a2f5c725fb43482b8360efa865617b93
+2025-08-11T16:58:48.4473149Z github_network_a2f5c725fb43482b8360efa865617b93
+2025-08-11T16:58:48.4536516Z Cleaning up orphan processes

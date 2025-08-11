@@ -1,0 +1,33 @@
+﻿2025-08-11T16:58:11.9674092Z ##[group]Run npm ci
+2025-08-11T16:58:11.9674371Z [36;1mnpm ci[0m
+2025-08-11T16:58:11.9752885Z shell: /usr/bin/bash -e {0}
+2025-08-11T16:58:11.9753340Z ##[endgroup]
+2025-08-11T16:58:16.1371043Z npm error code EUSAGE
+2025-08-11T16:58:16.1371591Z npm error
+2025-08-11T16:58:16.1373296Z npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+2025-08-11T16:58:16.1374618Z npm error
+2025-08-11T16:58:16.1375167Z npm error Missing: @pinia/testing@0.1.7 from lock file
+2025-08-11T16:58:16.1375958Z npm error Missing: @playwright/test@1.54.2 from lock file
+2025-08-11T16:58:16.1376718Z npm error Missing: playwright@1.54.2 from lock file
+2025-08-11T16:58:16.1377433Z npm error Missing: fsevents@2.3.2 from lock file
+2025-08-11T16:58:16.1378487Z npm error Missing: playwright-core@1.54.2 from lock file
+2025-08-11T16:58:16.1379066Z npm error
+2025-08-11T16:58:16.1379498Z npm error Clean install a project
+2025-08-11T16:58:16.1380012Z npm error
+2025-08-11T16:58:16.1380337Z npm error Usage:
+2025-08-11T16:58:16.1380672Z npm error npm ci
+2025-08-11T16:58:16.1381034Z npm error
+2025-08-11T16:58:16.1381377Z npm error Options:
+2025-08-11T16:58:16.1382193Z npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+2025-08-11T16:58:16.1383278Z npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+2025-08-11T16:58:16.1384461Z npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+2025-08-11T16:58:16.1385544Z npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+2025-08-11T16:58:16.1386282Z npm error [--no-bin-links] [--no-fund] [--dry-run]
+2025-08-11T16:58:16.1387046Z npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+2025-08-11T16:58:16.1388111Z npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+2025-08-11T16:58:16.1388670Z npm error
+2025-08-11T16:58:16.1389213Z npm error aliases: clean-install, ic, install-clean, isntall-clean
+2025-08-11T16:58:16.1389707Z npm error
+2025-08-11T16:58:16.1390130Z npm error Run "npm help ci" for more info
+2025-08-11T16:58:16.1391024Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-08-11T16_58_12_040Z-debug-0.log
+2025-08-11T16:58:16.1542394Z ##[error]Process completed with exit code 1.

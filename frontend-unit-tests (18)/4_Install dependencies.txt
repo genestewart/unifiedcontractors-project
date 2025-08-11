@@ -1,0 +1,38 @@
+﻿2025-08-11T16:58:12.0033625Z ##[group]Run npm ci
+2025-08-11T16:58:12.0033906Z [36;1mnpm ci[0m
+2025-08-11T16:58:12.0109953Z shell: /usr/bin/bash -e {0}
+2025-08-11T16:58:12.0110217Z ##[endgroup]
+2025-08-11T16:58:15.4356950Z npm warn EBADENGINE Unsupported engine {
+2025-08-11T16:58:15.4357479Z npm warn EBADENGINE   package: 'happy-dom@18.0.1',
+2025-08-11T16:58:15.4357903Z npm warn EBADENGINE   required: { node: '>=20.0.0' },
+2025-08-11T16:58:15.4358495Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+2025-08-11T16:58:15.4359117Z npm warn EBADENGINE }
+2025-08-11T16:58:15.4446881Z npm error code EUSAGE
+2025-08-11T16:58:15.4447404Z npm error
+2025-08-11T16:58:15.4449043Z npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+2025-08-11T16:58:15.4449957Z npm error
+2025-08-11T16:58:15.4450354Z npm error Missing: @pinia/testing@0.1.7 from lock file
+2025-08-11T16:58:15.4450888Z npm error Missing: @playwright/test@1.54.2 from lock file
+2025-08-11T16:58:15.4451469Z npm error Missing: playwright@1.54.2 from lock file
+2025-08-11T16:58:15.4452174Z npm error Missing: fsevents@2.3.2 from lock file
+2025-08-11T16:58:15.4452714Z npm error Missing: playwright-core@1.54.2 from lock file
+2025-08-11T16:58:15.4453074Z npm error
+2025-08-11T16:58:15.4453361Z npm error Clean install a project
+2025-08-11T16:58:15.4453654Z npm error
+2025-08-11T16:58:15.4453862Z npm error Usage:
+2025-08-11T16:58:15.4454105Z npm error npm ci
+2025-08-11T16:58:15.4454286Z npm error
+2025-08-11T16:58:15.4454471Z npm error Options:
+2025-08-11T16:58:15.4454905Z npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+2025-08-11T16:58:15.4455514Z npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+2025-08-11T16:58:15.4456121Z npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+2025-08-11T16:58:15.4456720Z npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+2025-08-11T16:58:15.4457198Z npm error [--no-bin-links] [--no-fund] [--dry-run]
+2025-08-11T16:58:15.4457719Z npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+2025-08-11T16:58:15.4458254Z npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+2025-08-11T16:58:15.4458597Z npm error
+2025-08-11T16:58:15.4458937Z npm error aliases: clean-install, ic, install-clean, isntall-clean
+2025-08-11T16:58:15.4459252Z npm error
+2025-08-11T16:58:15.4459491Z npm error Run "npm help ci" for more info
+2025-08-11T16:58:15.4460317Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-08-11T16_58_12_085Z-debug-0.log
+2025-08-11T16:58:15.4620690Z ##[error]Process completed with exit code 1.

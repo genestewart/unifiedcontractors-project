@@ -1,0 +1,39 @@
+﻿2025-08-11T16:58:02.8446537Z Current runner version: '2.327.1'
+2025-08-11T16:58:02.8471974Z ##[group]Runner Image Provisioner
+2025-08-11T16:58:02.8472732Z Hosted Compute Agent
+2025-08-11T16:58:02.8473272Z Version: 20250711.363
+2025-08-11T16:58:02.8473872Z Commit: 6785254374ce925a23743850c1cb91912ce5c14c
+2025-08-11T16:58:02.8474563Z Build Date: 2025-07-11T20:04:25Z
+2025-08-11T16:58:02.8475108Z ##[endgroup]
+2025-08-11T16:58:02.8475710Z ##[group]Operating System
+2025-08-11T16:58:02.8476290Z Ubuntu
+2025-08-11T16:58:02.8476742Z 24.04.2
+2025-08-11T16:58:02.8477241Z LTS
+2025-08-11T16:58:02.8477828Z ##[endgroup]
+2025-08-11T16:58:02.8478326Z ##[group]Runner Image
+2025-08-11T16:58:02.8478873Z Image: ubuntu-24.04
+2025-08-11T16:58:02.8479466Z Version: 20250804.2.0
+2025-08-11T16:58:02.8480429Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250804.2/images/ubuntu/Ubuntu2404-Readme.md
+2025-08-11T16:58:02.8481769Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250804.2
+2025-08-11T16:58:02.8483019Z ##[endgroup]
+2025-08-11T16:58:02.8484479Z ##[group]GITHUB_TOKEN Permissions
+2025-08-11T16:58:02.8486593Z Contents: read
+2025-08-11T16:58:02.8487105Z Metadata: read
+2025-08-11T16:58:02.8487955Z Packages: read
+2025-08-11T16:58:02.8488469Z ##[endgroup]
+2025-08-11T16:58:02.8490540Z Secret source: Actions
+2025-08-11T16:58:02.8491741Z Prepare workflow directory
+2025-08-11T16:58:02.8816312Z Prepare all required actions
+2025-08-11T16:58:02.8854569Z Getting action download info
+2025-08-11T16:58:03.2464651Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-08-11T16:58:03.2465802Z Version: 4.3.0
+2025-08-11T16:58:03.2466754Z Digest: sha256:62afad8896fc57a531e3d48e3f489c729474ff63a4c1791408cea7b32a62ef32
+2025-08-11T16:58:03.2468068Z Source commit SHA: 08eba0b27e820071cde6df949e0beb9ba4906955
+2025-08-11T16:58:03.2468853Z ##[endgroup]
+2025-08-11T16:58:03.4659282Z ##[group]Download immutable action package 'actions/setup-node@v4'
+2025-08-11T16:58:03.4660063Z Version: 4.4.0
+2025-08-11T16:58:03.4660760Z Digest: sha256:9427cefe82346e992fb5b949e3569b39d537ae41aa3086483b14eceebfc16bc1
+2025-08-11T16:58:03.4661813Z Source commit SHA: 49933ea5288caeca8642d1e84afbd3f7d6820020
+2025-08-11T16:58:03.4662460Z ##[endgroup]
+2025-08-11T16:58:03.5546691Z Download action repository 'codecov/codecov-action@v3' (SHA:ab904c41d6ece82784817410c45d8b8c02684457)
+2025-08-11T16:58:03.9950201Z Complete job name: frontend-unit-tests (20)

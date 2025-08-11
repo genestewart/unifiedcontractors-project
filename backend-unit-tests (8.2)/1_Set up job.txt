@@ -1,0 +1,40 @@
+﻿2025-08-11T16:58:03.6660692Z Current runner version: '2.327.1'
+2025-08-11T16:58:03.6684091Z ##[group]Runner Image Provisioner
+2025-08-11T16:58:03.6684901Z Hosted Compute Agent
+2025-08-11T16:58:03.6685416Z Version: 20250711.363
+2025-08-11T16:58:03.6686100Z Commit: 6785254374ce925a23743850c1cb91912ce5c14c
+2025-08-11T16:58:03.6686775Z Build Date: 2025-07-11T20:04:25Z
+2025-08-11T16:58:03.6687365Z ##[endgroup]
+2025-08-11T16:58:03.6687890Z ##[group]Operating System
+2025-08-11T16:58:03.6688466Z Ubuntu
+2025-08-11T16:58:03.6688898Z 24.04.2
+2025-08-11T16:58:03.6689393Z LTS
+2025-08-11T16:58:03.6690243Z ##[endgroup]
+2025-08-11T16:58:03.6690708Z ##[group]Runner Image
+2025-08-11T16:58:03.6691287Z Image: ubuntu-24.04
+2025-08-11T16:58:03.6691776Z Version: 20250804.2.0
+2025-08-11T16:58:03.6692769Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250804.2/images/ubuntu/Ubuntu2404-Readme.md
+2025-08-11T16:58:03.6694064Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250804.2
+2025-08-11T16:58:03.6695288Z ##[endgroup]
+2025-08-11T16:58:03.6696746Z ##[group]GITHUB_TOKEN Permissions
+2025-08-11T16:58:03.6698500Z Contents: read
+2025-08-11T16:58:03.6699057Z Metadata: read
+2025-08-11T16:58:03.6699975Z Packages: read
+2025-08-11T16:58:03.6700599Z ##[endgroup]
+2025-08-11T16:58:03.6702674Z Secret source: Actions
+2025-08-11T16:58:03.6703470Z Prepare workflow directory
+2025-08-11T16:58:03.7165420Z Prepare all required actions
+2025-08-11T16:58:03.7211899Z Getting action download info
+2025-08-11T16:58:04.2090693Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-08-11T16:58:04.2091702Z Version: 4.3.0
+2025-08-11T16:58:04.2092675Z Digest: sha256:62afad8896fc57a531e3d48e3f489c729474ff63a4c1791408cea7b32a62ef32
+2025-08-11T16:58:04.2093961Z Source commit SHA: 08eba0b27e820071cde6df949e0beb9ba4906955
+2025-08-11T16:58:04.2094707Z ##[endgroup]
+2025-08-11T16:58:04.4944304Z Download action repository 'shivammathur/setup-php@v2' (SHA:20529878ed81ef8e78ddf08b480401e6101a850f)
+2025-08-11T16:58:04.9917087Z ##[group]Download immutable action package 'actions/cache@v3'
+2025-08-11T16:58:04.9917950Z Version: 3.4.3
+2025-08-11T16:58:04.9918708Z Digest: sha256:912f76fb11db1ca09ae23248a39eb86e79ea0f0f6e183d9cb96d0b778eeea4e2
+2025-08-11T16:58:04.9920118Z Source commit SHA: 2f8e54208210a422b2efd51efaa6bd6d7ca8920f
+2025-08-11T16:58:04.9920834Z ##[endgroup]
+2025-08-11T16:58:05.0923785Z Download action repository 'codecov/codecov-action@v3' (SHA:ab904c41d6ece82784817410c45d8b8c02684457)
+2025-08-11T16:58:05.9478102Z Complete job name: backend-unit-tests (8.2)
